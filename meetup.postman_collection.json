@@ -1,0 +1,31 @@
+{
+    "variables": [],
+    "info": {
+        "name": "meetup",
+        "_postman_id": "760092a2-afa7-0f8c-9739-c18c068bf233",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Create User",
+            "request": {
+                "url": "http://localhost:3000/api/users/signup",
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "description": ""
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n\t\"names\": \"Edwin Torres\",\n\t\"email\": \"edwin@maill.com\",\n\t\"password\": \"abc123.\",\n\t\"birthday\": \"1988/09/28\",\n\t\"jobTittle\": \"Software Engineer\",\n\t\"country\": \"Colombia\",\n\t\"city\": \"Bogota\"\n}"
+                },
+                "description": ""
+            },
+            "response": []
+        }
+    ]
+}
