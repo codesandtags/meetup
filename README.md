@@ -12,11 +12,13 @@ This structure project is based on [Web Starter Kit](https://developers.google.c
 ## Installation
 
 1. **Clone** or **Download** the [git project](https://github.com/codesandtags/meetup-event-planner).
-2. [Use npm](https://docs.npmjs.com/cli/install) to install all dependencies in the _package.json_.
+
+2. [Use npm](https://docs.npmjs.com/cli/install) to install all dependencies in the _package.json_ and _bower.json_.
 ```sh
-npm install
+npm install && bower install
 ```
-3. Once you finish to install the dependencies you can start the project using the *gulp tasks*. (please review the [gulpfile.babel.js](https://github.com/codesandtags/meetup-event-planner/blob/master/gulpfile.babel.js))
+
+3. Once you finish to install the dependencies you can start the project using the *gulp tasks*. (please review the [gulpfile.babel.js](https://github.com/codesandtags/meetup/blob/master/gulpfile.babel.js))
 
 ## Usage
 
