@@ -2,6 +2,7 @@ node_modules/
 dist/
 .tmp
 app.yaml
+bower_components/
 
 # Idea Files
 .idea/

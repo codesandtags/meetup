@@ -56,19 +56,20 @@ gulp.task('copy', () =>
 
 gulp.task('copy-vendor-files', function () {
     //fonts
-    gulp.src('./node_modules/font-awesome' + gulpConfig.app.fonts.src)
+    gulp.src('./bower_components/font-awesome' + gulpConfig.app.fonts.src)
         .pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.fonts.des));
 
     //scripts
     gulp.src([
-        './node_modules/jquery/dist/jquery.js',
-        './node_modules/bootstrap/dist/js/bootstrap.min.js'
+        './bower_components/jquery/dist/jquery.min.js',
+        './bower_components/bootstrap/dist/js/bootstrap.min.js'
     ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.scripts.vendor));
 
     //styles
     gulp.src([
-        './node_modules/bootstrap/dist/css/bootstrap.min.css'
-    ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.styles.des))
+        './bower_components/bootstrap/dist/css/bootstrap.min.css',
+        './bower_components/font-awesome/css/font-awesome.min.css'
+    ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.styles.vendor));
 
 });
 
