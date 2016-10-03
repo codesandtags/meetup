@@ -1,0 +1,23 @@
+{
+  "name": "meetup",
+  "description": "meetup project for udacity",
+  "main": "",
+  "authors": [
+    "Codes and Tags <codesandtags@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/codesandtags/meetup",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "font-awesome": "^4.6.3",
+    "bootstrap": "v4.0.0-alpha.4"
+  }
+}
