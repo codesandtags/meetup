@@ -62,7 +62,8 @@ gulp.task('copy-vendor-files', function () {
     //scripts
     gulp.src([
         './bower_components/jquery/dist/jquery.min.js',
-        './bower_components/bootstrap/dist/js/bootstrap.min.js'
+        './bower_components/bootstrap/dist/js/bootstrap.min.js',
+        './bower_components/holderjs/holder.min.js'
     ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.scripts.vendor));
 
     //styles
@@ -211,7 +212,7 @@ gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 gulp.task('serve', ['clean', ], (cb) => {
     runSequence(
         'styles',
-        ['html', 'lint', 'copy-vendor-files', 'scripts', 'browser-sync'],
+        ['images', 'html', 'lint', 'copy-vendor-files', 'scripts', 'browser-sync'],
         cb
     );
     gulp.watch(['app/**/*.html'], reload);

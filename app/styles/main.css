@@ -163,3 +163,34 @@ label.error, label.error.active{
   margin-top:40px;
   color: red !important;
 }
+
+
+/** Here start the new template **/
+
+.album {
+  min-height: 50rem; /* Can be removed; just added for demo purposes */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #f7f7f7;
+}
+
+.card {
+  float: left;
+  width: 33.333%;
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 0;
+}
+
+.card > img {
+  margin-bottom: .75rem;
+}
+
+.card-text {
+  font-size: 85%;
+}
+
+.card img{
+  width: 356px;
+  height: 280px;
+}
