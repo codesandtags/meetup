@@ -47,7 +47,8 @@ gulp.task('copy', () =>
     gulp.src([
         'app/*',
         '!app/*.html',
-        'node_modules/apache-server-configs/dist/.htaccess'
+        'node_modules/apache-server-configs/dist/.htaccess',
+        'app/favicon.ico'
     ], {
         dot: true
     }).pipe(gulp.dest(gulpConfig.dist))
@@ -212,7 +213,7 @@ gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 gulp.task('serve', ['clean', ], (cb) => {
     runSequence(
         'styles',
-        ['images', 'html', 'lint', 'copy-vendor-files', 'scripts', 'browser-sync'],
+        ['copy', 'images', 'html', 'lint', 'copy-vendor-files', 'scripts', 'browser-sync'],
         cb
     );
     gulp.watch(['app/**/*.html'], reload);
