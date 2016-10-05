@@ -195,3 +195,8 @@ label.error, label.error.active{
   width: 356px;
   height: 280px;
 }
+
+
+.error-page{
+    margin-bottom: 30px;
+}

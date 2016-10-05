@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-hbs');
 var handlebars = require('handlebars');
+var labels = require('./app/i18n/en/labels');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -18,13 +19,13 @@ var app = express();
 
 //Handlebars engine template
 /*
-app.engine('hbs', hbs.express4({
-    //partialsDir   : __dirname +'/dist/views/partials',
-    defaultLayout : __dirname +'/dist/views/index',
-    extname       : '.hbs',
-    layoutsDir    : __dirname +'/dist/views/',
-}));
-*/
+ app.engine('hbs', hbs.express4({
+ //partialsDir   : __dirname +'/dist/views/partials',
+ defaultLayout : __dirname +'/dist/views/index',
+ extname       : '.hbs',
+ layoutsDir    : __dirname +'/dist/views/',
+ }));
+ */
 // Use `.hbs` for extensions and find partials in `views/partials`.
 app.engine('hbs', hbs.express4({
     partialsDir: path.join(__dirname, 'app/views/partials')
@@ -32,6 +33,29 @@ app.engine('hbs', hbs.express4({
 app.set('view engine', 'hbs');
 // view engine setup
 app.set('views', path.join(__dirname, 'app/views'));
+
+hbs.registerHelper('ifCond', function(v1, operator, v2, options) {
+    switch (operator) {
+        case '==':
+            return (v1 == v2) ? options.fn(this) : options.inverse(this);
+        case '===':
+            return (v1 === v2) ? options.fn(this) : options.inverse(this);
+        case '<':
+            return (v1 < v2) ? options.fn(this) : options.inverse(this);
+        case '<=':
+            return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+        case '>':
+            return (v1 > v2) ? options.fn(this) : options.inverse(this);
+        case '>=':
+            return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+        case '&&':
+            return (v1 && v2) ? options.fn(this) : options.inverse(this);
+        case '||':
+            return (v1 || v2) ? options.fn(this) : options.inverse(this);
+        default:
+            return options.inverse(this);
+    }
+});
 
 
 // uncomment after placing your favicon in /dist
@@ -50,7 +74,7 @@ app.use('/api/users', users);
 app.use('/api/meetups', meetups);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -61,9 +85,10 @@ app.use(function (req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
+    app.use(function(err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
+            labels: labels,
             message: err.message,
             error: err
         });
@@ -72,9 +97,10 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
+        labels: labels,
         message: err.message,
         error: {}
     });

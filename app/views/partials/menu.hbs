@@ -12,17 +12,17 @@
         <div class="navbar-toggleable-xs collapse" id="navbar-header" aria-expanded="false" style="height: 0px;">
             <a class="navbar-brand hidden-xs-down" href="#">{{labels.projectName}}</a>
             <ul class="nav navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">{{labels.menu.home}} <span class="sr-only">(current)</span></a>
+                <li class="nav-item {{#ifCond activePage '==' labels.menu.home}}active{{/ifCond}}">
+                    <a class="nav-link" href="/">{{labels.menu.home}} <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">{{labels.menu.signIn}}</a>
+                <li class="nav-item {{#ifCond activePage '==' labels.menu.signIn}}active{{/ifCond}}">
+                    <a class="nav-link" href="/sign-in">{{labels.menu.signIn}}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{{labels.menu.signUp}}</a>
+                <li class="nav-item {{#ifCond activePage '==' labels.menu.signUp}}active{{/ifCond}}">
+                    <a class="nav-link" href="/sign-up">{{labels.menu.signUp}}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
+                <li class="nav-item {{#ifCond activePage '==' labels.menu.createMeetup}}active{{/ifCond}}">
+                    <a class="nav-link" href="/meetps/create">{{labels.menu.createMeetup}}</a>
                 </li>
             </ul>
         </div>

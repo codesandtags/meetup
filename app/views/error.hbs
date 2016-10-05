@@ -1,17 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Error</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="/favicon.ico" rel="shortcut icon"/>
+
+
+    <title>404 - Page not found</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="styles/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="styles/main.css" rel="stylesheet">
 </head>
+
 <body>
-<div class="error">
-    <h1>{{message}}</h1>
-    <h2>{{error.status}}</h2>
-    <pre>{{error.stack}}</pre>
+
+{{>menu activePage=labels.menu.home}}
+
+<div class="container error-page">
+    <div class="row text-xs-center">
+        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIzMnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgZmlsbD0iIzkyOTI5MiIgaWQ9Imljb24tMTAyLWZvbGRlci1lcnJvciI+PHBhdGggZD0iTTE5LjAwNjk0NDQsMjYgTDEuOTkzMjg3NDQsMjYgQzAuODk5NzEyNjgyLDI2IDAsMjUuMTA4NTI5NSAwLDI0LjAwODg0NSBMMCwxMyBMMjksMTMgTDI5LDIwLjkyOTQxMTggTDI1LjUsMTUgTDE5LjAwNjk0NDQsMjYgTDE5LjAwNjk0NDQsMjYgTDE5LjAwNjk0NDQsMjYgWiBNNC40NDA4OTIxZS0xNiwxMiBMNC40NDA4OTIxZS0xNiw1Ljk5MTE1NSBDNC40NDA4OTIxZS0xNiw0Ljg4OTY3Mzk1IDAuODk2NjY2MjUxLDQgMi4wMDI3NjAxMyw0IEwxMyw0IEwxNSw4IEwyNi45OTQxNDEzLDggQzI4LjEwMjkzOTksOCAyOSw4Ljg5MzIzMTkgMjksOS45OTUwODkyOSBMMjksMTIgTDAsMTIgTDQuNDQwODkyMWUtMTYsMTIgTDQuNDQwODkyMWUtMTYsMTIgWiBNMjUuNSwxNyBMMzIsMjggTDE5LDI4IEwyNS41LDE3IEwyNS41LDE3IFogTTI1LDIxIEwyNSwyNCBMMjYsMjQgTDI2LDIxIEwyNSwyMSBMMjUsMjEgWiBNMjUsMjUgTDI1LDI2IEwyNiwyNiBMMjYsMjUgTDI1LDI1IEwyNSwyNSBaIiBpZD0iZm9sZGVyLWVycm9yIi8+PC9nPjwvZz48L3N2Zz4="
+             alt="404" width="300px">
+        <h4>{{message}}</h4>
+        <p>{{labels.error404Description}}</p>
+    </div>
 </div>
+
+{{>footer}}
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./scripts/vendor/jquery.min.js"></script>
+<script src="./scripts/vendor/bootstrap.min.js"></script>
+<script src="./scripts/vendor/holder.min.js"></script>
 </body>
 </html>
