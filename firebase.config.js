@@ -1,7 +1,17 @@
 module.exports = {
-    apiKey: "AIzaSyDL70y7VLlY8jWFkXT5eSpNcUa1kignd_E",
-    authDomain: "meetup-e1533.firebaseapp.com",
-    databaseURL: "https://meetup-e1533.firebaseio.com",
-    storageBucket: "meetup-e1533.appspot.com",
+    project: 'meetup-e1533',
+    getConfig: function() {
+        return {
+            apiKey: 'AIzaSyDL70y7VLlY8jWFkXT5eSpNcUa1kignd_E',
+            authDomain: this.project + '.firebaseapp.com',
+            databaseURL: 'https://' + this.project + '.firebaseio.com',
+            storageBucket: this.project + '.appspot.com'
+        }
+    },
+    CONSTANTS: {
+        REFS: {
+            USERS: 'users'
+        }
+    }
 };
 

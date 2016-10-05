@@ -55,7 +55,12 @@ gulp.task('copy', () =>
         .pipe($.size({title: 'copy'}))
 );
 
-gulp.task('copy-vendor-files', function () {
+gulp.task('copy-i18n', () =>
+    gulp.src([gulpConfig.app.i18n.path])
+        .pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.i18n.des))
+);
+
+gulp.task('copy-vendor-files', function() {
     //fonts
     gulp.src('./bower_components/font-awesome' + gulpConfig.app.fonts.src)
         .pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.fonts.des));
@@ -156,7 +161,7 @@ gulp.task('html', () => {
 
 });
 
-gulp.task('browser-sync', ['nodemon'], function () {
+gulp.task('browser-sync', ['nodemon'], function() {
     // for more browser-sync config options: http://www.browsersync.io/docs/options/
     browserSync.init({
         notify: false,
@@ -179,14 +184,14 @@ gulp.task('browser-sync', ['nodemon'], function () {
     });
 });
 
-gulp.task('nodemon', function (cb) {
+gulp.task('nodemon', function(cb) {
     var called = false;
     return nodemon({
         // nodemon our expressjs server
         script: 'app/www',
 
         // watch core server file(s) that require server restart on change
-        ext: '*.js *.jade'
+        ext: '*.js'
     })
         .on('start', function onStart() {
             // ensure start only got called once
@@ -210,10 +215,11 @@ gulp.task('nodemon', function (cb) {
 gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['clean', ], (cb) => {
+gulp.task('serve', ['clean',], (cb) => {
     runSequence(
         'styles',
-        ['copy', 'images', 'html', 'lint', 'copy-vendor-files', 'scripts', 'browser-sync'],
+        ['copy', 'copy-i18n', 'images', 'html', 'lint', 'copy-vendor-files', 'scripts'],
+        'browser-sync',
         cb
     );
     gulp.watch(['app/**/*.html'], reload);

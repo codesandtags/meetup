@@ -27,6 +27,10 @@ module.exports = {
             "path": "./app/views/**",
             "src": "./app/**/*.html",
             "des": "/views/"
+        },
+        "i18n": {
+            "path": "./app/i18n/**",
+            "des": "/i18n/"
         }
     },
 

@@ -22,11 +22,12 @@ main .card {
 
 /* Navigation*/
 .navbar{
-  background-color: transparent;
+  background-color: white;
+  margin-bottom: 10px;
 }
 
 .navbar.secondary{
-  background-color: #3F729B;
+  background-color: white;
 }
 
 .scrolling-navbar {
@@ -36,17 +37,17 @@ main .card {
 }
 
 .top-nav-collapse {
-  background-color: #3F729B;
+  background-color: lightblue;
 }
 
 footer.page-footer {
-  background-color: #3F729B;
+  background-color: lightblue;
   margin-top:0;
 }
 
 @media only screen and (max-width: 768px) {
   .navbar {
-    background-color: #3F729B;
+    background-color: lightblue;
   }
 }
 

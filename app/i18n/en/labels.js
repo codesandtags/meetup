@@ -1,0 +1,21 @@
+module.exports = {
+    "projectName": "Meet Up",
+    "projectDescription": "Find great events near to you",
+    "menu": {
+        "home": "home",
+        "signUp": "Sign Up",
+        "signIn": "Sign In",
+        "aboutUs": "About Us",
+        "meetups": "Meetup",
+        "createMeetup": "Create MeetUp"
+    },
+    "forms": {
+        "firstName": "Fist Name",
+        "lastName": "Last Name",
+        "email": "Email Address",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "country": "Country",
+        "city": "City"
+    }
+};

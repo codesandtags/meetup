@@ -25,9 +25,14 @@ app.engine('hbs', hbs.express4({
     layoutsDir    : __dirname +'/dist/views/',
 }));
 */
+// Use `.hbs` for extensions and find partials in `views/partials`.
+app.engine('hbs', hbs.express4({
+    partialsDir: path.join(__dirname, 'app/views/partials')
+}));
 app.set('view engine', 'hbs');
 // view engine setup
 app.set('views', path.join(__dirname, 'app/views'));
+
 
 // uncomment after placing your favicon in /dist
 //app.use(favicon(__dirname + '/dist/favicon.ico'));
