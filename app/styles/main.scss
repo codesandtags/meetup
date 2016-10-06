@@ -299,19 +299,21 @@ body {
 }
 
 .carousel-item:nth-child(1) {
-  background: url("../images/the-dj.jpg") no-repeat;
+  background: url("../images/slide01.jpg") no-repeat;
   background-size: cover;
-  opacity: 0.7;
+  background-position: center;
 }
 
 .carousel-item:nth-child(2) {
-  background: url("../images/table_coffe.jpg") no-repeat;
+  background: url("../images/slide02.jpg") no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .carousel-item:nth-child(3) {
-  background: url("../images/draw-something.jpg") no-repeat;
+  background: url("../images/slide03.jpg") no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 /*Caption*/
