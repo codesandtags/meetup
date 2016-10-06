@@ -89,7 +89,7 @@ if (app.get('env') === 'development') {
         res.status(err.status || 500);
         res.render('error', {
             labels: labels,
-            message: err.message,
+            message: 'Page ' + req.path + ' ' + err.message,
             error: err
         });
     });

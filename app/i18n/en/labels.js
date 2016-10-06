@@ -1,5 +1,5 @@
 module.exports = {
-    "projectName": "Meet Up",
+    "projectName": "Meetup Events",
     "projectDescription": "Find great events near to you",
     "error404Description": "The page that you are looking for does not exist.",
     "menu": {

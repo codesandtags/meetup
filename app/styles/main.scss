@@ -1,0 +1,335 @@
+/* Template Base Colors */
+$meetup-1: #FA4659;
+$meetup-2: #FEFFE4;
+$meetup-3: #A3DE83;
+$meetup-4: #2EB872;
+$meetup-5: #cccccc;
+$meetup-6: #ff7e82;
+
+/* Necessary for full page carousel*/
+
+html,
+body,
+.view {
+  height: 100%;
+}
+
+/* Navbar */
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand {
+  color: $meetup-2;
+  margin-left: 25px;
+}
+
+#navbar-header > ul > li > a {
+  color: $meetup-2;
+}
+
+#navbar-header > ul > li:last-child {
+  margin-right: 25px;
+}
+
+#navbar-header > ul > li.active > a {
+  color: #000000;
+}
+
+body {
+  margin-top: 54px;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid $meetup-5;
+  padding-top: 10px;
+}
+
+main {
+  margin-top: 3rem;
+}
+
+main .card {
+  margin-bottom: 2rem;
+}
+
+.container.secondary {
+  margin-top: 7rem;
+}
+
+/* Navigation*/
+.navbar {
+  background-color: $meetup-1;
+  margin-bottom: 10px;
+}
+
+.navbar.secondary {
+  background-color: $meetup-1;
+}
+
+.scrolling-navbar {
+  -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+  -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+  transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+.top-nav-collapse {
+  background-color: $meetup-1;
+}
+
+footer.page-footer {
+  background-color: lightblue;
+  margin-top: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: $meetup-1;
+  }
+}
+
+/*Flip Card*/
+
+.flip {
+  -webkit-perspective: 800px;
+  perspective: 800px;
+  position: relative;
+}
+
+.flip.card.flipped {
+  -webkit-transform: rotatey(-180deg);
+  transform: rotatey(-180deg);
+}
+
+.flip.card {
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.flip.card .face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+.flip.card .front {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.flip.card .back {
+  position: absolute;
+  top: 1px;
+  -webkit-transform: rotatey(-180deg);
+  transform: rotatey(-180deg);
+}
+
+.flip-control {
+  font-size: 1.2em;
+}
+
+.register-button {
+  text-align: center;
+}
+
+.table-details {
+}
+
+label.error, label.error.active {
+  width: 90%;
+  text-align: right;
+  margin-top: 40px;
+  color: red !important;
+}
+
+/** Here start the new template **/
+
+.album {
+  min-height: 50rem; /* Can be removed; just added for demo purposes */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #f7f7f7;
+}
+
+.card {
+  float: left;
+  width: 33.333%;
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 0;
+}
+
+.card > img {
+  margin-bottom: .75rem;
+}
+
+.card-text {
+  font-size: 85%;
+}
+
+.card img {
+  width: 356px;
+  height: 280px;
+}
+
+.error-page {
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+
+.error-page img {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.copyright {
+  color: $meetup-1;
+}
+
+/* Carousel */
+.main-carousel {
+  height: 600px;
+  border: 10px solid black;
+  background-color: #00a0df;
+}
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+  background-color: #777;
+}
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+.carousel-indicators {
+  top: 1.5rem;
+  right: 1.5rem;
+  bottom: auto;
+  left: auto;
+  width: 1rem;
+  margin-left: 0;
+}
+
+.carousel-indicators > li {
+  margin-bottom: .25rem;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.marketing h2 {
+  font-weight: normal;
+}
+
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+.carousel-item:nth-child(1) {
+  background: url("../images/the-dj.jpg") no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+}
+
+.carousel-item:nth-child(2) {
+  background: url("../images/table_coffe.jpg") no-repeat;
+  background-size: cover;
+}
+
+.carousel-item:nth-child(3) {
+  background: url("../images/draw-something.jpg") no-repeat;
+  background-size: cover;
+}
+
+/*Caption*/
+
+.flex-center {
+  color: #fff;
+}
+
+/*Cards*/
+.event-data li i {
+  margin-right: 20px;
+}
+
+.view-details {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.card-block h4 {
+  color: darkblue;
+}

@@ -1,31 +1,35 @@
 <!--menu-->
-<div class="container">
-    <nav class="navbar navbar-light bg-faded">
-        <div class="clearfix">
-            <button class="navbar-toggler pull-xs-right hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="bd-main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                ☰
-            </button>
-            <a class="navbar-brand hidden-sm-up" href="/">
-                {{labels.projectName}}
-            </a>
-        </div>
-        <div class="navbar-toggleable-xs collapse" id="navbar-header" aria-expanded="false" style="height: 0px;">
-            <a class="navbar-brand hidden-xs-down" href="#">{{labels.projectName}}</a>
-            <ul class="nav navbar-nav">
-                <li class="nav-item {{#ifCond activePage '==' labels.menu.home}}active{{/ifCond}}">
-                    <a class="nav-link" href="/">{{labels.menu.home}} <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item {{#ifCond activePage '==' labels.menu.signIn}}active{{/ifCond}}">
-                    <a class="nav-link" href="/sign-in">{{labels.menu.signIn}}</a>
-                </li>
-                <li class="nav-item {{#ifCond activePage '==' labels.menu.signUp}}active{{/ifCond}}">
-                    <a class="nav-link" href="/sign-up">{{labels.menu.signUp}}</a>
-                </li>
-                <li class="nav-item {{#ifCond activePage '==' labels.menu.createMeetup}}active{{/ifCond}}">
-                    <a class="nav-link" href="/meetps/create">{{labels.menu.createMeetup}}</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
+<nav class="navbar navbar-light navbar-fixed-top">
+    <div class="clearfix">
+        <button class="navbar-toggler pull-xs-right hidden-sm-up" type="button" data-toggle="collapse"
+                data-target="#navbar-header" aria-controls="bd-main-nav" aria-expanded="false"
+                aria-label="Toggle navigation">
+            ☰
+        </button>
+        <a class="navbar-brand hidden-sm-up" href="/">
+            {{labels.projectName}}
+        </a>
+    </div>
+    <div class="navbar-toggleable-xs collapse" id="navbar-header" aria-expanded="false" style="height: 0px;">
+        <a class="navbar-brand hidden-xs-down" href="#">{{labels.projectName}}</a>
+        <ul class="nav navbar-nav pull-sm-right">
+            <li class="nav-item {{#ifCond activePage '==' labels.menu.home}}active{{/ifCond}}">
+                <a class="nav-link" href="/">
+                    <i class="fa fa-home" aria-hidden="true"></i> {{labels.menu.home}} <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {{#ifCond activePage '==' labels.menu.signIn}}active{{/ifCond}}">
+                <a class="nav-link" href="/sign-in">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i> {{labels.menu.signIn}}</a>
+            </li>
+            <li class="nav-item {{#ifCond activePage '==' labels.menu.signUp}}active{{/ifCond}}">
+                <a class="nav-link" href="/sign-up">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i> {{labels.menu.signUp}}</a>
+            </li>
+            <li class="nav-item {{#ifCond activePage '==' labels.menu.createMeetup}}active{{/ifCond}}">
+                <a class="nav-link" href="/meetps/create">
+                    <i class="fa fa-calendar-plus-o" aria-hidden="true"></i> {{labels.menu.createMeetup}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <!--/menu-->

@@ -8,27 +8,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="/favicon.ico" rel="shortcut icon"/>
-
-
-    <title>Jumbotron Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="styles/vendor/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="styles/main.css" rel="stylesheet">
+    <title>Meetup Event Planner</title>
+    {{>styles}}
 </head>
 
 <body>
 
 {{>menu activePage=labels.menu.home}}
 
-<section class="jumbotron text-xs-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">{{labels.projectName}}</h1>
-        <p class="lead text-muted">{{labels.projectDescription}}</p>
-    </div>
-</section>
+{{>carousel}}
 
 <div class="container">
     <div class="row">
@@ -84,12 +72,7 @@
 </div>
 
 {{>footer}}
+{{>scripts}}
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="./scripts/vendor/jquery.min.js"></script>
-<script src="./scripts/vendor/bootstrap.min.js"></script>
-<script src="./scripts/vendor/holder.min.js"></script>
 </body>
 </html>
