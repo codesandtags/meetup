@@ -11,23 +11,15 @@
         </a>
     </div>
     <div class="navbar-toggleable-xs collapse" id="navbar-header" aria-expanded="false" style="height: 0px;">
-        <a class="navbar-brand hidden-xs-down" href="#">{{labels.projectName}}</a>
+        <a class="navbar-brand hidden-xs-down" href="/">{{labels.projectName}}</a>
         <ul class="nav navbar-nav pull-sm-right">
-            <li class="nav-item {{#ifCond activePage '==' labels.menu.home}}active{{/ifCond}}">
-                <a class="nav-link" href="/">
-                    <i class="fa fa-home" aria-hidden="true"></i> {{labels.menu.home}} <span class="sr-only">(current)</span></a>
+            <li class="nav-item {{#ifCond activePage '==' labels.menu.createMeetup}}active{{/ifCond}}">
+                <a class="nav-link" href="/meetps/create">
+                    <i class="fa fa-calendar-plus-o" aria-hidden="true"></i> {{labels.menu.createMeetup}}</a>
             </li>
             <li class="nav-item {{#ifCond activePage '==' labels.menu.signIn}}active{{/ifCond}}">
                 <a class="nav-link" href="/sign-in">
                     <i class="fa fa-sign-in" aria-hidden="true"></i> {{labels.menu.signIn}}</a>
-            </li>
-            <li class="nav-item {{#ifCond activePage '==' labels.menu.signUp}}active{{/ifCond}}">
-                <a class="nav-link" href="/sign-up">
-                    <i class="fa fa-user-plus" aria-hidden="true"></i> {{labels.menu.signUp}}</a>
-            </li>
-            <li class="nav-item {{#ifCond activePage '==' labels.menu.createMeetup}}active{{/ifCond}}">
-                <a class="nav-link" href="/meetps/create">
-                    <i class="fa fa-calendar-plus-o" aria-hidden="true"></i> {{labels.menu.createMeetup}}</a>
             </li>
         </ul>
     </div>

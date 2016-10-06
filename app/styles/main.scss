@@ -1,10 +1,12 @@
 /* Template Base Colors */
-$meetup-1: #FA4659;
-$meetup-2: #FEFFE4;
-$meetup-3: #A3DE83;
-$meetup-4: #2EB872;
-$meetup-5: #cccccc;
-$meetup-6: #ff7e82;
+$meetup-2: #556270;
+$meetup-1: #4ECDC4;
+$meetup-3: #C7F464;
+$meetup-4: #FF6B6B;
+$meetup-5: #C44D58;
+$meetup-6: #F8F2E6;
+$meetup-7: #B8EBE7;
+$meetup-8: #999999;
 
 /* Necessary for full page carousel*/
 
@@ -15,14 +17,22 @@ body,
 }
 
 /* Navbar */
+.navbar-light {
+  box-shadow: 0 1px 0 1px rgba(85,98,112,.4);
+}
+
 .navbar-light .navbar-brand:focus,
 .navbar-light .navbar-brand {
-  color: $meetup-2;
+  color: $meetup-6;
   margin-left: 25px;
 }
 
+.navbar-light .navbar-brand:hover {
+  color: $meetup-7;
+}
+
 #navbar-header > ul > li > a {
-  color: $meetup-2;
+  color: $meetup-1;
 }
 
 #navbar-header > ul > li:last-child {
@@ -30,7 +40,11 @@ body,
 }
 
 #navbar-header > ul > li.active > a {
-  color: #000000;
+  color: $meetup-7;
+}
+
+#navbar-header > ul > li > a:hover {
+  color: $meetup-6;
 }
 
 body {
@@ -38,6 +52,10 @@ body {
 }
 
 /* Footer */
+footer div ul li a {
+  color: $meetup-5;
+}
+
 footer {
   border-top: 1px solid $meetup-5;
   padding-top: 10px;
@@ -47,22 +65,18 @@ main {
   margin-top: 3rem;
 }
 
-main .card {
-  margin-bottom: 2rem;
-}
-
 .container.secondary {
   margin-top: 7rem;
 }
 
 /* Navigation*/
 .navbar {
-  background-color: $meetup-1;
+  background-color: $meetup-2;
   margin-bottom: 10px;
 }
 
 .navbar.secondary {
-  background-color: $meetup-1;
+  background-color: $meetup-2;
 }
 
 .scrolling-navbar {
@@ -72,7 +86,7 @@ main .card {
 }
 
 .top-nav-collapse {
-  background-color: $meetup-1;
+  background-color: $meetup-2;
 }
 
 footer.page-footer {
@@ -82,7 +96,7 @@ footer.page-footer {
 
 @media only screen and (max-width: 768px) {
   .navbar {
-    background-color: $meetup-1;
+    background-color: $meetup-2;
   }
 }
 
@@ -126,15 +140,20 @@ footer.page-footer {
   transform: rotatey(-180deg);
 }
 
-.flip-control {
-  font-size: 1.2em;
-}
-
 .register-button {
   text-align: center;
 }
 
 .table-details {
+}
+
+.flip-control a{
+  color:$meetup-2;
+  text-decoration: none;
+}
+
+.flip-control a:hover{
+  color:$meetup-1;
 }
 
 label.error, label.error.active {
@@ -153,27 +172,6 @@ label.error, label.error.active {
   background-color: #f7f7f7;
 }
 
-.card {
-  float: left;
-  width: 33.333%;
-  padding: .75rem;
-  margin-bottom: 2rem;
-  border: 0;
-}
-
-.card > img {
-  margin-bottom: .75rem;
-}
-
-.card-text {
-  font-size: 85%;
-}
-
-.card img {
-  width: 356px;
-  height: 280px;
-}
-
 .error-page {
   margin-bottom: 30px;
   padding-top: 20px;
@@ -185,7 +183,7 @@ label.error, label.error.active {
 }
 
 .copyright {
-  color: $meetup-1;
+  color: $meetup-8;
 }
 
 /* Carousel */
@@ -332,6 +330,22 @@ body {
   text-align: center;
 }
 
-.card-block h4 {
-  color: darkblue;
+.card-block h6 {
+  margin-bottom: 10px;
+}
+
+.card-title {
+  color: $meetup-4;
+}
+
+.card-link {
+  color: $meetup-2;
+}
+
+.card-image {
+  display: block;
+  height: 150px;
+  width: 100%;
+  background-size: cover;
+  border: 1px solid #EEEEEE;
 }
