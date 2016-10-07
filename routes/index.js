@@ -89,4 +89,15 @@ router.get('/', function(req, res, next) {
     res.render('index', content);
 });
 
+
+router.get('/sign-in', function(req, res, next) {
+    var content = {
+        labels: labels
+    };
+
+    res.render('signin', content);
+
+});
+
+
 module.exports = router;

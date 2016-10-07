@@ -1,12 +1,13 @@
 /* Template Base Colors */
-$meetup-2: #556270;
 $meetup-1: #4ECDC4;
+$meetup-2: #556270;
 $meetup-3: #C7F464;
 $meetup-4: #FF6B6B;
 $meetup-5: #C44D58;
 $meetup-6: #F8F2E6;
 $meetup-7: #B8EBE7;
 $meetup-8: #999999;
+$meetup-9: #5bc0de;
 
 /* Necessary for full page carousel*/
 
@@ -18,7 +19,7 @@ body,
 
 /* Navbar */
 .navbar-light {
-  box-shadow: 0 1px 0 1px rgba(85,98,112,.4);
+  box-shadow: 0 1px 0 1px rgba(85, 98, 112, .4);
 }
 
 .navbar-light .navbar-brand:focus,
@@ -147,13 +148,13 @@ footer.page-footer {
 .table-details {
 }
 
-.flip-control a{
-  color:$meetup-2;
+.flip-control a {
+  color: $meetup-2;
   text-decoration: none;
 }
 
-.flip-control a:hover{
-  color:$meetup-1;
+.flip-control a:hover {
+  color: $meetup-1;
 }
 
 label.error, label.error.active {
@@ -172,7 +173,7 @@ label.error, label.error.active {
   background-color: #f7f7f7;
 }
 
-.error-page {
+.error-page, .page {
   margin-bottom: 30px;
   padding-top: 20px;
 }
@@ -349,3 +350,29 @@ body {
   background-size: cover;
   border: 1px solid #EEEEEE;
 }
+
+.form-sign-in {
+  padding: 20px;
+}
+
+.tab-content {
+  border: 1px solid #eeeeee;
+  border-top: 0;
+  box-shadow: 0px 8px 20px 0px rgba(204, 204, 204, 1);
+}
+
+.nav-item .nav-link {
+  color: $meetup-9;
+  font-weight: 500;
+}
+
+.nav-item .nav-link.active  {
+  color: $meetup-2;
+}
+
+.tab-pane > p{
+  font-size: 22px;
+}
+
+
+

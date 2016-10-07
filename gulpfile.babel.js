@@ -225,7 +225,7 @@ gulp.task('serve', ['clean',], (cb) => {
     gulp.watch(['app/**/*.html'], reload);
     gulp.watch(['app/views/**/*.hbs'], reload);
     gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
-    gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
+    gulp.watch(['app/scripts/**/*.js'], ['lin1t', 'scripts', reload]);
     gulp.watch(['app/images/**/*'], reload);
 });
 

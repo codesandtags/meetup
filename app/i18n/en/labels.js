@@ -17,6 +17,7 @@ module.exports = {
         "password": "Password",
         "confirmPassword": "Confirm Password",
         "country": "Country",
-        "city": "City"
+        "city": "City",
+        "forgotPassword": "Forgot your password?"
     }
 };
