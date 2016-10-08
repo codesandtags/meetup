@@ -21,20 +21,22 @@
         <div class="col-md-6 offset-sm-3">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#profile" role="tab" data-toggle="tab"><i class="fa fa-user"
-                                                                                               aria-hidden="true"></i> {{labels.menu.signIn}}
+                    <a class="nav-link active signin-tab" href="#signin" role="tab" data-toggle="tab"><i
+                            class="fa fa-user"
+                            aria-hidden="true"></i> {{labels.menu.signIn}}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#buzz" role="tab" data-toggle="tab"><i class="fa fa-user-plus"
-                                                                                     aria-hidden="true"></i> {{labels.menu.signUp}}
+                    <a class="nav-link signup-tab" href="#signup" role="tab" data-toggle="tab"><i
+                            class="fa fa-user-plus"
+                            aria-hidden="true"></i> {{labels.menu.signUp}}
                     </a>
                 </li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content form-sign-in">
-                <div role="tabpanel" class="tab-pane fade in active" id="profile">
+                <div role="tabpanel" class="tab-pane fade in active" id="signin">
                     <p class="text-sm-center text-muted">Log into your account</p>
                     <form id="signinForm" method="post">
                         <div class="form-group error-login has-feedback has-error">
@@ -43,12 +45,12 @@
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="email">{{labels.forms.email}}</label>
-                            <input type="email" name="email" class="form-control" id="email"
-                                   placeholder="{{labels.forms.email}}" required autocomplete="true">
+                            <input type="email" name="email" class="form-control"
+                                   placeholder="{{labels.forms.email}}" required autocomplete="true" autofocus>
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="password">{{labels.forms.password}}</label>
-                            <input type="password" name="password" class="form-control" id="password"
+                            <input type="password" name="password" class="form-control"
                                    placeholder="{{labels.forms.password}}" required>
                         </div>
                         <div class="form-group text-xs-center">
@@ -58,32 +60,32 @@
                         </div>
                     </form>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="buzz">
+                <div role="tabpanel" class="tab-pane fade" id="signup">
                     <p class="text-sm-center text-muted">Create your account</p>
                     <form id="signupForm">
                         <div class="form-group">
                             <label class="sr-only" for="firstName">{{labels.forms.firstName}}</label>
-                            <input type="text" name="firstName" class="form-control" id="firstName"
+                            <input type="text" name="firstName" class="form-control"
                                    placeholder="{{labels.forms.firstName}} *" required>
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="lastName">{{labels.forms.lastName}}</label>
-                            <input type="text" name="lastName" class="form-control" id="lastName"
+                            <input type="text" name="lastName" class="form-control"
                                    placeholder="{{labels.forms.lastName}} *" required>
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="email">{{labels.forms.email}}</label>
-                            <input type="email" name="email" class="form-control" id="email"
+                            <input type="email" name="email" class="form-control"
                                    placeholder="{{labels.forms.email}} *" required autocomplete="true">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="password">{{labels.forms.password}}</label>
-                            <input type="password" name="password" class="form-control" id="password"
+                            <input type="password" name="password" class="form-control"
                                    placeholder="{{labels.forms.password}} *" required>
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="country">{{labels.forms.country}}</label>
-                            <input type="country" name="country" class="form-control" id="country"
+                            <input type="country" name="country" class="form-control"
                                    placeholder="{{labels.forms.country}}" list="countries">
                             <datalist id="countries"></datalist>
                         </div>
@@ -101,18 +103,31 @@
 {{>scripts}}
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Request the countries
         var countries;
         $.ajax({
             url: 'https://restcountries.eu/rest/v1/all',
             context: document.body
-        }).done(function(countries) {
+        }).done(function (countries) {
             var $countries = $('#countries');
 
-            countries.forEach(function(country) {
+            countries.forEach(function (country) {
                 $countries.append('<option value="' + country.name + '">');
             });
+        });
+
+        // Event handler when user press the tabs
+        $('.signup-tab').click(function () {
+            setTimeout(function () {
+                $('#signupForm').find('input[name=firstName]').focus()
+            }, 200);
+        });
+
+        $('.signin-tab').click(function () {
+            setTimeout(function () {
+                $('#signinForm').find('input[name=email]').focus()
+            }, 200);
         });
 
         // Sign In Form
@@ -149,18 +164,18 @@
                         }
                     }
                 })
-                .on('success.form.fv', function(e) {
+                .on('success.form.fv', function (e) {
                     e.preventDefault();
                     var account = {
-                        email: $(this).find('#email').val(),
-                        password: $(this).find('#password').val()
+                        email: $(this).find('input[name=email]').val(),
+                        password: $(this).find('input[name=password]').val()
                     };
 
                     $.ajax({
                         type: 'POST',
                         url: '/api/users/login',
                         data: account
-                    }).done(function(response) {
+                    }).done(function (response) {
 
                         if (response.code) {
                             var $errorLogin = $('.error-login');
@@ -181,7 +196,7 @@
                             window.location.replace("/");
                         }
 
-                    }).fail(function() {
+                    }).fail(function () {
                         console.log('Upsss there an error!');
                     });
 
@@ -244,24 +259,24 @@
                         }
                     }
                 })
-                .on('success.form.fv', function(e) {
+                .on('success.form.fv', function (e) {
                     e.preventDefault();
                     var account = {
-                        email: $(this).find('#email').val(),
-                        password: $(this).find('#password').val(),
-                        firstName: $(this).find('#firstName').val(),
-                        lastName: $(this).find('#lastName').val(),
-                        country: $(this).find('#country').val()
+                        email: $(this).find('input[name=email]').val(),
+                        password: $(this).find('input[name=password]').val(),
+                        firstName: $(this).find('input[name=firstName]').val(),
+                        lastName: $(this).find('input[name=lastName]').val(),
+                        country: $(this).find('input[name=country]').val()
                     };
 
                     $.ajax({
                         type: 'POST',
                         url: '/api/users/signup',
                         data: account
-                    }).done(function(response) {
+                    }).done(function (response) {
                         debugger;
 
-                    }).fail(function() {
+                    }).fail(function () {
                         console.log('Upsss there an error!');
                     });
 
