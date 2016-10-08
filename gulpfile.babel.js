@@ -66,17 +66,32 @@ gulp.task('copy-vendor-files', function() {
         .pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.fonts.des));
 
     //scripts
+    // jQuery, Bootstrap and Holder
     gulp.src([
         './bower_components/jquery/dist/jquery.min.js',
         './bower_components/bootstrap/dist/js/bootstrap.min.js',
+        './bower_components/tether/dist/js/tether.min.js',
         './bower_components/holderjs/holder.min.js'
     ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.scripts.vendor));
 
+    // Form Validation
+    gulp.src([
+        './bower_components/form.validation/dist/js/formValidation.min.js',
+        './bower_components/form.validation/dist/js/framework/bootstrap.min.js',
+    ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.scripts.vendor + 'formvalidation/'));
+
     //styles
+    // Bootstrap and Font-Awesome
     gulp.src([
         './bower_components/bootstrap/dist/css/bootstrap.min.css',
-        './bower_components/font-awesome/css/font-awesome.min.css'
+        './bower_components/tether/dist/css/tether.min.css',
+        './bower_components/font-awesome/css/font-awesome.min.css',
     ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.styles.vendor));
+
+    // Form Validation
+    gulp.src([
+        './bower_components/form.validation/dist/css/formValidation.min.css'
+    ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.styles.vendor + 'formvalidation/'));
 
 });
 
