@@ -8,91 +8,38 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="/favicon.ico" rel="shortcut icon"/>
-    <title>Meetup Event Planner</title>
+    <title>{{title}}</title>
     {{>styles}}
 </head>
 
 <body>
 
-{{>menu activePage=labels.menu.home}}
+{{>menu}}
 
 <div class="container page">
     <div class="row">
         <div class="col-md-6 offset-sm-3">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active signin-tab" href="#signin" role="tab" data-toggle="tab"><i
+                    <a class="nav-link signin-tab {{#ifCond activeTab '==' 'signin'}}active{{/ifCond}}" href="#signin" role="tab" data-toggle="tab"><i
                             class="fa fa-user"
                             aria-hidden="true"></i> {{labels.menu.signIn}}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link signup-tab" href="#signup" role="tab" data-toggle="tab"><i
+                    <a class="nav-link signup-tab {{#ifCond activeTab '==' 'signup'}}active{{/ifCond}}" href="#signup" role="tab" data-toggle="tab"><i
                             class="fa fa-user-plus"
                             aria-hidden="true"></i> {{labels.menu.signUp}}
                     </a>
                 </li>
             </ul>
-
             <!-- Tab panes -->
             <div class="tab-content form-sign-in">
-                <div role="tabpanel" class="tab-pane fade in active" id="signin">
-                    <p class="text-sm-center text-muted">Log into your account</p>
-                    <form id="signinForm" method="post">
-                        <div class="form-group error-login has-feedback has-error">
-                            <i class="form-control-feedback fa fa-times"></i>
-                            <small></small>
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="email">{{labels.forms.email}}</label>
-                            <input type="email" name="email" class="form-control"
-                                   placeholder="{{labels.forms.email}}" required autocomplete="true" autofocus>
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="password">{{labels.forms.password}}</label>
-                            <input type="password" name="password" class="form-control"
-                                   placeholder="{{labels.forms.password}}" required>
-                        </div>
-                        <div class="form-group text-xs-center">
-                            <button type="submit" class="btn btn-info">{{labels.menu.signIn}}</button>
-                            <hr>
-                            <a href="#" class="secondary-link">{{labels.forms.forgotPassword}}</a>
-                        </div>
-                    </form>
+                <div role="tabpanel" class="tab-pane {{#ifCond activeTab '==' 'signin'}}fade in active{{/ifCond}}" id="signin">
+                    {{>signin-form}}
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="signup">
-                    <p class="text-sm-center text-muted">Create your account</p>
-                    <form id="signupForm">
-                        <div class="form-group">
-                            <label class="sr-only" for="firstName">{{labels.forms.firstName}}</label>
-                            <input type="text" name="firstName" class="form-control"
-                                   placeholder="{{labels.forms.firstName}} *" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="lastName">{{labels.forms.lastName}}</label>
-                            <input type="text" name="lastName" class="form-control"
-                                   placeholder="{{labels.forms.lastName}} *" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="email">{{labels.forms.email}}</label>
-                            <input type="email" name="email" class="form-control"
-                                   placeholder="{{labels.forms.email}} *" required autocomplete="true">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="password">{{labels.forms.password}}</label>
-                            <input type="password" name="password" class="form-control"
-                                   placeholder="{{labels.forms.password}} *" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="country">{{labels.forms.country}}</label>
-                            <input type="country" name="country" class="form-control"
-                                   placeholder="{{labels.forms.country}}" list="countries">
-                            <datalist id="countries"></datalist>
-                        </div>
-                        <div class="form-group text-xs-center">
-                            <button type="submit" class="btn btn-info">{{labels.menu.signUp}}</button>
-                        </div>
-                    </form>
+                <div role="tabpanel" class="tab-pane {{#ifCond activeTab '==' 'signup'}}fade in active{{/ifCond}}" id="signup">
+                    {{>signup-form}}
                 </div>
             </div>
         </div>
@@ -104,183 +51,7 @@
 
 <script>
     $(document).ready(function () {
-        // Request the countries
-        var countries;
-        $.ajax({
-            url: 'https://restcountries.eu/rest/v1/all',
-            context: document.body
-        }).done(function (countries) {
-            var $countries = $('#countries');
-
-            countries.forEach(function (country) {
-                $countries.append('<option value="' + country.name + '">');
-            });
-        });
-
-        // Event handler when user press the tabs
-        $('.signup-tab').click(function () {
-            setTimeout(function () {
-                $('#signupForm').find('input[name=firstName]').focus()
-            }, 200);
-        });
-
-        $('.signin-tab').click(function () {
-            setTimeout(function () {
-                $('#signinForm').find('input[name=email]').focus()
-            }, 200);
-        });
-
-        // Sign In Form
-        $('#signinForm')
-                .formValidation({
-                    framework: 'bootstrap',
-                    icon: {
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh'
-                    },
-                    fields: {
-                        email: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The email is required'
-                                },
-                                regexp: {
-                                    regexp: /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i,
-                                    message: 'The email structure is invalid'
-                                }
-                            }
-                        },
-                        password: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The password is required'
-                                },
-                                regexp: {
-                                    regexp: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                                    message: 'The password must have, minimum 8 characters at least 1 alphabet and 1 number'
-                                }
-                            }
-                        }
-                    }
-                })
-                .on('success.form.fv', function (e) {
-                    e.preventDefault();
-                    var account = {
-                        email: $(this).find('input[name=email]').val(),
-                        password: $(this).find('input[name=password]').val()
-                    };
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '/api/users/login',
-                        data: account
-                    }).done(function (response) {
-
-                        if (response.code) {
-                            var $errorLogin = $('.error-login');
-
-                            switch (response.code) {
-                                case 'auth/wrong-password':
-                                    $errorLogin.fadeIn();
-                                    $errorLogin.find('small').html('The email or password you entered is invalid');
-                                    break;
-                                case 'auth/user-not-found':
-                                    $errorLogin.fadeIn();
-                                    $errorLogin.find('small').html('The email is not registered yet');
-                                    break;
-                            }
-                        } else {
-                            sessionStorage.clear();
-                            sessionStorage.setItem('user', JSON.stringify(response));
-                            window.location.replace("/");
-                        }
-
-                    }).fail(function () {
-                        console.log('Upsss there an error!');
-                    });
-
-                });
-
-
-        // Sign Un Form
-        $('#signupForm')
-                .formValidation({
-                    framework: 'bootstrap',
-                    icon: {
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh'
-                    },
-                    fields: {
-                        firstName: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The first name is required'
-                                }
-                            },
-                            stringLength: {
-                                min: 6,
-                                message: 'The first name must be more than 6 characters long'
-                            }
-                        },
-                        lastName: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The last name is required'
-                                },
-                                stringLength: {
-                                    min: 6,
-                                    message: 'The last name must be more than 6 characters long'
-                                }
-                            }
-                        },
-                        email: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The email is required'
-                                },
-                                regexp: {
-                                    regexp: /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i,
-                                    message: 'The email structure is invalid'
-                                }
-                            }
-                        },
-                        password: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The password is required'
-                                },
-                                regexp: {
-                                    regexp: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                                    message: 'The password must have, min 8 charaters'
-                                }
-                            }
-                        }
-                    }
-                })
-                .on('success.form.fv', function (e) {
-                    e.preventDefault();
-                    var account = {
-                        email: $(this).find('input[name=email]').val(),
-                        password: $(this).find('input[name=password]').val(),
-                        firstName: $(this).find('input[name=firstName]').val(),
-                        lastName: $(this).find('input[name=lastName]').val(),
-                        country: $(this).find('input[name=country]').val()
-                    };
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '/api/users/signup',
-                        data: account
-                    }).done(function (response) {
-                        debugger;
-
-                    }).fail(function () {
-                        console.log('Upsss there an error!');
-                    });
-
-                });
+        loadCountries('#countries');
     });
 </script>
 

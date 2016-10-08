@@ -21,6 +21,10 @@
                 <a class="nav-link" href="/sign-in">
                     <i class="fa fa-user" aria-hidden="true"></i> {{labels.menu.signIn}}</a>
             </li>
+            <li class="nav-item {{#ifCond activePage '==' labels.menu.signUp}}active{{/ifCond}}">
+                <a class="nav-link" href="/sign-up">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i> {{labels.menu.signUp}}</a>
+            </li>
         </ul>
     </div>
 </nav>

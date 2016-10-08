@@ -92,11 +92,22 @@ router.get('/', function(req, res, next) {
 
 router.get('/sign-in', function(req, res, next) {
     var content = {
-        labels: labels
+        labels: labels,
+        title: 'Sign In',
+        activeTab: 'signin',
+        activePage: labels.menu.signIn
     };
-
     res.render('signin', content);
+});
 
+router.get('/sign-up', function(req, res, next) {
+    var content = {
+        labels: labels,
+        title: 'Sign Up',
+        activeTab: 'signup',
+        activePage: labels.menu.signUp
+    };
+    res.render('signin', content);
 });
 
 

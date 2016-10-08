@@ -1,0 +1,22 @@
+<p class="text-sm-center text-muted">Log into your account</p>
+<form id="signinForm" method="post">
+    <div class="form-group error-login has-feedback has-error">
+        <i class="form-control-feedback fa fa-times"></i>
+        <small></small>
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="email">{{labels.forms.email}}</label>
+        <input type="email" name="email" class="form-control"
+               placeholder="{{labels.forms.email}}" required autocomplete="true">
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="password">{{labels.forms.password}}</label>
+        <input type="password" name="password" class="form-control"
+               placeholder="{{labels.forms.password}}" required>
+    </div>
+    <div class="form-group text-xs-center">
+        <button type="submit" class="btn btn-info">{{labels.menu.signIn}}</button>
+        <hr>
+        <a href="#" class="secondary-link">{{labels.forms.forgotPassword}}</a>
+    </div>
+</form>
