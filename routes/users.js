@@ -35,24 +35,70 @@ router.get('/:userId', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-    var account = req.body,
-        userId = generateHash(account.email);
-
-    res.send(account);
-
-});
-
-router.post('/logout', function(req, res, next) {
     var account = req.body;
 
-    res.send(account);
+    firebase.auth().signInWithEmailAndPassword(account.email, account.password)
+        .then(function(data) {
+            var user = {
+                displayName: data.displayName,
+                email: data.email,
+                photoURL: data.photoURL,
+                uid: data.uid
+            };
+
+            console.log('user', user);
+            res.send(user);
+        })
+        .catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log('error : ', error);
+            res.send(error);
+        });
 });
 
 router.post('/signup', function(req, res) {
-    var account = req.body,
-        users = firebase.database().ref(CONSTANTS.REFS.USERS);
+    var account = req.body;
+
+    firebase.auth().createUserWithEmailAndPassword(account.email, account.password)
+        .then(function(data) {
+            // If the user is created then I retrieve the basic information
+            var user = {
+                displayName: data.displayName,
+                email: data.email,
+                photoURL: data.photoURL,
+                uid: data.uid
+            };
+
+            console.log('the uid is ' + user.uid);
+            return user;
+        })
+        .then(function(userInfo) {
+            // If i have the basic information then I save the additional information
+            // for the user in a new node
+            firebase
+                .database()
+                .ref(CONSTANTS.REFS.USERS + '/' + userInfo.uid)
+                .set({
+                    firstName: account.firstName,
+                    lastName: account.lastName,
+                    country: account.country
+                });
+
+            res.send(buildResponse(200, 'User created successfully'));
+        })
+        .catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log('error : ', error);
+            res.send(error);
+        });
+
 
     // Validates if the user already exists
+    /*
     if (account) {
         console.log('validating users...');
         users
@@ -75,7 +121,13 @@ router.post('/signup', function(req, res) {
                     res.send(buildResponse(400, 'The user already exists.'));
                 }
             });
-    }
+    }*/
+});
+
+router.post('/logout', function(req, res, next) {
+    var account = req.body;
+
+    res.send(account);
 });
 
 
