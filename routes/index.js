@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var labels = require('../dist/i18n/en/labels');
+var sess;
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
+    sess = req.session;
+
     var content = {
         labels: labels,
         meetups: [
@@ -83,32 +86,49 @@ router.get('/', function(req, res, next) {
                 availability: "20 - 30"
             }
         ]
-
     };
-
-    res.render('index', content);
+    res.render('index', validateSession(content));
 });
 
-
-router.get('/sign-in', function(req, res, next) {
+router.get('/sign-in', function (req, res, next) {
     var content = {
         labels: labels,
         title: 'Sign In',
         activeTab: 'signin',
         activePage: labels.menu.signIn
     };
-    res.render('signin', content);
+    res.render('signin', validateSession(content));
 });
 
-router.get('/sign-up', function(req, res, next) {
+router.get('/sign-up', function (req, res, next) {
     var content = {
         labels: labels,
         title: 'Sign Up',
         activeTab: 'signup',
         activePage: labels.menu.signUp
     };
-    res.render('signin', content);
+    res.render('signin', validateSession(content));
 });
 
+router.get('/logout', function (req, res, next) {
+
+    req.session.destroy(function(err) {
+        console.log('There is an error destroying the session');
+    });
+
+    res.redirect('/');
+});
+
+function validateSession(content) {
+    content.isAuth = false;
+
+    if (sess.isAuth) {
+        content.isAuth = true;
+        content.user = sess.user;
+    }
+    console.log('Session en INDEX : ', sess);
+
+    return content;
+}
 
 module.exports = router;

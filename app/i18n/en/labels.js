@@ -6,6 +6,8 @@ module.exports = {
         "home": "home",
         "signUp": "Sign Up",
         "signIn": "Sign In",
+        "profile": "Profile",
+        "logOut": "Log out",
         "aboutUs": "About Us",
         "meetups": "Meetup",
         "createMeetup": "Create MeetUp"

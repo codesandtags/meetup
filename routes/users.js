@@ -3,6 +3,7 @@ var router = express.Router();
 var firebase = require("firebase");
 var firebaseConfig = require("../firebase.config.js");
 var CONSTANTS = firebaseConfig.CONSTANTS;
+var sess;
 
 firebase.initializeApp(firebaseConfig.getConfig());
 
@@ -36,6 +37,7 @@ router.get('/:userId', function(req, res, next) {
 
 router.post('/login', function(req, res, next) {
     var account = req.body;
+    sess = req.session;
 
     firebase.auth().signInWithEmailAndPassword(account.email, account.password)
         .then(function(data) {
@@ -47,12 +49,16 @@ router.post('/login', function(req, res, next) {
             };
 
             console.log('user', user);
+
+            console.log('Session en USERS ANTES : ',  sess);
+            sess.isAuth = true;
+            sess.user = user;
+            console.log('Session en USERS DESPUES : ',  sess);
+
             res.send(user);
         })
         .catch(function(error) {
             // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
             console.log('error : ', error);
             res.send(error);
         });

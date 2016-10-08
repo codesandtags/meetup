@@ -1,11 +1,15 @@
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var hbs = require('express-hbs');
-var handlebars = require('handlebars');
+var helpers = require('handlebars-helpers')({
+    handlebars: hbs
+});
+
 var labels = require('./app/i18n/en/labels');
 
 var routes = require('./routes/index');
@@ -13,6 +17,9 @@ var users = require('./routes/users');
 var meetups = require('./routes/meetups');
 
 var app = express();
+app.use(session({
+    secret: 'udacity-rulz'
+}));
 
 //uncomment the next line if you want to use jade engine
 //app.set('view engine', 'jade');
@@ -28,13 +35,13 @@ var app = express();
  */
 // Use `.hbs` for extensions and find partials in `views/partials`.
 app.engine('hbs', hbs.express4({
-    partialsDir: path.join(__dirname, 'app/views/partials')
+    partialsDir: path.join(__dirname, 'app/views/partials'),
 }));
 app.set('view engine', 'hbs');
 // view engine setup
 app.set('views', path.join(__dirname, 'app/views'));
 
-hbs.registerHelper('ifCond', function(v1, operator, v2, options) {
+hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
     switch (operator) {
         case '==':
             return (v1 == v2) ? options.fn(this) : options.inverse(this);
@@ -74,7 +81,7 @@ app.use('/api/users', users);
 app.use('/api/meetups', meetups);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -85,7 +92,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
             labels: labels,
@@ -97,7 +104,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         labels: labels,
