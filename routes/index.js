@@ -122,7 +122,7 @@ router.get('/logout', function (req, res, next) {
 function validateSession(content) {
     content.isAuth = false;
 
-    if (sess.isAuth) {
+    if (sess && sess.isAuth) {
         content.isAuth = true;
         content.user = sess.user;
     }

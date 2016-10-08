@@ -163,10 +163,21 @@
                 url: '/api/users/signup',
                 data: account
             }).done(function (response) {
-                debugger;
+                if (response.status === 200) {
+                    $('.message-sign-up').addClass('has-success');
+                    $('.message-sign-up').removeClass('has-danger');
+                    $('#signupForm').trigger('reset');
+                } else {
+                    $('.message-sign-up').removeClass('has-success');
+                    $('.message-sign-up').addClass('has-danger');
+                }
 
+                $('.message-sign-up .form-control-feedback').html(response.message);
+                $('.message-sign-up').fadeIn();
             }).fail(function () {
-                console.log('Upsss there an error!');
+                $('.message-sign-up').addClass('has-danger');
+                $('.message-sign-up .form-control-feedback').html('The user could be registered');
+                $('.message-sign-up').fadeIn();
             });
 
         });
