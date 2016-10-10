@@ -119,6 +119,19 @@ router.get('/logout', function (req, res, next) {
     res.redirect('/');
 });
 
+
+router.get('/meetups/create', function (req, res, next) {
+    var content = {
+        labels: labels,
+        title: 'Create New Meetup',
+        activePage: labels.menu.meetups
+    };
+
+    res.render('meetup', validateSession(content));
+});
+
+
+
 function validateSession(content) {
     content.isAuth = false;
 

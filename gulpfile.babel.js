@@ -80,6 +80,11 @@ gulp.task('copy-vendor-files', function() {
         './bower_components/form.validation/dist/js/framework/bootstrap.min.js',
     ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.scripts.vendor + 'formvalidation/'));
 
+    // jQuery Steps
+    gulp.src([
+        './bower_components/jquery.steps/build/jquery.steps.min.js'
+    ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.scripts.vendor));
+
     //styles
     // Bootstrap and Font-Awesome
     gulp.src([
@@ -92,6 +97,11 @@ gulp.task('copy-vendor-files', function() {
     gulp.src([
         './bower_components/form.validation/dist/css/formValidation.min.css'
     ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.styles.vendor + 'formvalidation/'));
+
+    // jQuery Steps
+    gulp.src([
+        './bower_components/jquery.steps/demo/css/jquery.steps.css'
+    ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.styles.vendor));
 
 });
 
