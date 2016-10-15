@@ -18,13 +18,12 @@
 
 <div class="container page">
     <div class="row">
-        <div class="col-md-12">
-            <h3>Create Meetup</h3>
+        <div class="col-sm-8 offset-sm-2">
+            <h2 class="page-header">Create Meetup</h2>
+
+            {{>meetup-create-form}}
         </div>
     </div>
-
-    {{>meetup-create-form}}
-
 </div>
 
 {{>footer}}
@@ -35,12 +34,6 @@
         loadCountries('#countries');
     });
 
-    $("#createMeetup").steps({
-        headerTag: "h3",
-        bodyTag: "section",
-        transitionEffect: "slideLeft",
-        autoFocus: true
-    });
 </script>
 
 </body>
