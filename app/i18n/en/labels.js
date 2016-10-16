@@ -23,20 +23,22 @@ module.exports = {
         "forgotPassword": "Forgot your password?",
         "meetup": {
             "generalInformation": "General Information",
-            "eventDate": "Event Date",
             "additionalInformation": "Additional Information",
-            "location": "Location",
+            "eventDate": "Event Date",
             "eventName": "Name of the event",
-            "eventNamePlaceHolder": "Language exchange and drinks",
+            "eventNamePlaceHolder": "Language exchange and drinks, Go to exercise at park, etc...",
             "eventType": "Type of event",
-            "eventTypePlaceHolder": "Birthday party, Conference Talk, Wedding, Languages, etc",
+            "eventTypePlaceHolder": "Birthday party, Conference Talk, Wedding, Languages, etc...",
             "eventHost": "Event Host (could be an individual’s name or an organization)",
             "eventHostPlaceHolder": "Berlitz Institute",
             "eventStartDate": "Start Date",
             "eventStartTime": "Start Time",
             "eventEndDate": "End Date",
             "eventEndTime": "End Time",
-            "guestList": "Guest List"
+            "location": "Location and Date",
+            "guestList": "Guest List",
+            "createMeetup": "Create Meetup",
+            "description": "Description of meetup"
         }
     }
 };

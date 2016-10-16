@@ -16,30 +16,18 @@
 
 {{>menu}}
 
-<div class="container page">
-    <div class="row">
-        <div class="col-md-12">
-            <h3>Create Meetup</h3>
-        </div>
-    </div>
+<div class="container page" role="main">
+    <h2>Create Meetup</h2>
 
     {{>meetup-create-form}}
-
 </div>
 
 {{>footer}}
 {{>scripts}}
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         loadCountries('#countries');
-    });
-
-    $("#createMeetup").steps({
-        headerTag: "h3",
-        bodyTag: "section",
-        transitionEffect: "slideLeft",
-        autoFocus: true
     });
 </script>
 
