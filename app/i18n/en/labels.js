@@ -21,6 +21,8 @@ module.exports = {
         "country": "Country",
         "city": "City",
         "forgotPassword": "Forgot your password?",
+        "jobTitle": "Job Title",
+        "birthday": "Birthday",
         "meetup": {
             "generalInformation": "General Information",
             "additionalInformation": "Additional Information",
@@ -31,7 +33,7 @@ module.exports = {
             "eventHost": "Event Host (could be an individual’s name or an organization)",
             "eventHostPlaceHolder": "Berlitz Institute",
             "eventStartDate": "Event start Date and Time",
-            "eventEndDate": "End Date and Time",
+            "eventEndDate": "Event End Date and Time",
             "location": "Location and Date",
             "eventCountry": "Country",
             "eventCountryPlaceHolder": "Colombia",

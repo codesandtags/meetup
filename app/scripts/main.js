@@ -106,11 +106,11 @@
                     validators: {
                         notEmpty: {
                             message: 'The first name is required'
+                        },
+                        stringLength: {
+                            min: 4,
+                            message: 'The first name must be more than 4 characters long'
                         }
-                    },
-                    stringLength: {
-                        min: 6,
-                        message: 'The first name must be more than 6 characters long'
                     }
                 },
                 lastName: {
@@ -119,8 +119,8 @@
                             message: 'The last name is required'
                         },
                         stringLength: {
-                            min: 6,
-                            message: 'The last name must be more than 6 characters long'
+                            min: 4,
+                            message: 'The last name must be more than 4 characters long'
                         }
                     }
                 },
@@ -142,7 +142,7 @@
                         },
                         regexp: {
                             regexp: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                            message: 'The password must have, min 8 charaters'
+                            message: 'The password must have, minimum 8 characters at least 1 alphabet and 1 number'
                         }
                     }
                 }
@@ -155,7 +155,9 @@
                 password: $(this).find('input[name=password]').val(),
                 firstName: $(this).find('input[name=firstName]').val(),
                 lastName: $(this).find('input[name=lastName]').val(),
-                country: $(this).find('input[name=country]').val()
+                country: $(this).find('input[name=country]').val(),
+                jobTitle: $(this).find('input[name=jobTitle]').val(),
+                birthday: $(this).find('input[name=birthday]').val()
             };
 
             $.ajax({
