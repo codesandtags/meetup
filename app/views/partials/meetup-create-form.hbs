@@ -37,9 +37,9 @@
 
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
-                        <input type="date" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                        <input type="date" class="form-control" name="eventStartDate">
                         <div class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-                        <input type="time" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                        <input type="time" class="form-control" name="eventStartTime">
                     </div>
                 </div>
 
@@ -48,9 +48,9 @@
 
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
-                        <input type="date" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                        <input type="date" class="form-control" name="eventEndDate">
                         <div class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-                        <input type="time" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                        <input type="time" class="form-control" name="eventEndTime">
                     </div>
                 </div>
 
@@ -78,6 +78,28 @@
             <fieldset>
                 <legend><i class="fa fa-plus-circle"
                            aria-hidden="true"></i> {{labels.forms.meetup.additionalInformation}}</legend>
+
+                <div class="form-group col-sm-12">
+                    <label for="size" class="meetup9-color">{{labels.forms.meetup.eventCost}} (*)</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></div>
+                        <input type="text" name="eventName" id="eventName"
+                               placeholder="{{labels.forms.meetup.eventCostPlaceHolder}}" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-12">
+                    <label for="size">{{labels.forms.meetup.eventGuest}} (*)</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></div>
+                        <select name="" id="" class="form-control">
+                            <option value="0_10">0 - 10 People</option>
+                            <option value="10_20">10 - 20 People</option>
+                            <option value="20_50">20 - 50 People</option>
+                            <option value="more_than_50">More than 50 People</option>
+                        </select>
+                    </div>
+                </div>
 
             </fieldset>
 

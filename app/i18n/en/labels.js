@@ -41,7 +41,10 @@ module.exports = {
             "eventCityPlaceHolder": "Bogota",
             "eventAddress": "Address",
             "eventAddressPlaceHolder": "Street 12 corner five, close to Book's Shop",
-            "guestList": "Guest List",
+            "eventGuest": "How many guest are you hope?",
+            "eventGuestPlaceHolder": "10, 20, 30...",
+            "eventCost": "How much does the ticket cost? (in USD)",
+            "eventCostPlaceHolder": "0 (free), 10, 30, 50",
             "createMeetup": "Create Meetup",
             "description": "Description of meetup"
         }

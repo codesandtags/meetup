@@ -16,12 +16,20 @@
 
 {{>menu}}
 
-<div class="container page" role="main">
-    <div class="jumbotron">
-        <h2>Create Meetup</h2>
-        <p>If you want to invite people and enjoy a good time with other, please fill the next form and
-        start a new meetup :D</p>
+<div class="jumbotron create-meetup-heading">
+    <div class="container">
+        <h2 class="heading-title">Create Meetup</h2>
+        <p>Do you want to invite people and enjoy a good time doing things of your particular interest?...
+            Then this form is for you, please fill the next form and start a new meetup. :-)
+        </p>
+        <p style="text-align: center">
+            <a href="#create-metup" id="scrollDown"><i class="fa fa-arrow-down" idaria-hidden="true"></i></a>
+        </p>
+        <a name="create-metup"></a>
     </div>
+</div>
+
+<div class="container page" role="main">
     {{>meetup-create-form}}
 </div>
 
@@ -31,7 +39,17 @@
 <script>
     $(document).ready(function() {
         loadCountries('#countries');
+
+        function scrollToAnchor(aid){
+            var aTag = $("a[name='"+ aid +"']");
+            $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+        }
+
+        $('#scrollDown').click(function() {
+           scrollToAnchor($(this).attr('href').replace('#',''));
+        });
     });
+
 </script>
 
 </body>
