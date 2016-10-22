@@ -5,25 +5,25 @@
                 <legend><i class="fa fa-info-circle" aria-hidden="true"></i> General Information</legend>
 
                 <div class="form-group col-sm-12">
-                    <label for="size" class="meetup9-color">{{labels.forms.meetup.eventName}} (*)</label>
+                    <label for="eventName" class="meetup9-color">{{labels.forms.meetup.eventName}} (*)</label>
                     <input type="text" name="eventName" id="eventName" required
                            placeholder="{{labels.forms.meetup.eventNamePlaceHolder}}" class="form-control">
                 </div>
 
                 <div class="form-group col-sm-12">
-                    <label for="size">{{labels.forms.meetup.eventType}} (*)</label>
+                    <label for="eventType">{{labels.forms.meetup.eventType}} (*)</label>
                     <input type="text" name="eventType" id="eventType" required
                            placeholder="{{labels.forms.meetup.eventTypePlaceHolder}}" class="form-control">
                 </div>
 
                 <div class="form-group col-sm-12">
-                    <label for="size">{{labels.forms.meetup.eventHost}} (*)</label>
+                    <label for="eventHost">{{labels.forms.meetup.eventHost}} (*)</label>
                     <input type="text" name="eventHost" id="eventHost" required
                            placeholder="{{labels.forms.meetup.eventHostPlaceHolder}}" class="form-control">
                 </div>
 
                 <div class="form-group col-sm-12">
-                    <label for="size">{{labels.forms.meetup.description}} (Optional)</label>
+                    <label for="description">{{labels.forms.meetup.description}} (Optional)</label>
                     <textarea id="description" name="description" class="form-control"></textarea>
                 </div>
             </fieldset>
@@ -33,7 +33,7 @@
                            aria-hidden="true"></i> {{labels.forms.meetup.location}}</legend>
 
                 <div class="form-group col-sm-12">
-                    <label for="size">{{labels.forms.meetup.eventStartDate}}</label>
+                    <label for="eventStartDate">{{labels.forms.meetup.eventStartDate}}</label>
 
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="form-group col-sm-12">
-                    <label for="size">{{labels.forms.meetup.eventEndDate}}</label>
+                    <label for="eventEndTime">{{labels.forms.meetup.eventEndDate}}</label>
 
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
@@ -55,20 +55,20 @@
                 </div>
 
                 <div class="form-group col-sm-12">
-                    <label for="size">{{labels.forms.meetup.eventCountry}}</label>
+                    <label for="country">{{labels.forms.meetup.eventCountry}}</label>
                     <input type="text" name="country" class="form-control"
                            placeholder="{{labels.forms.meetup.eventCountryPlaceHolder}}" list="countries">
                     <datalist id="countries"></datalist>
                 </div>
 
                 <div class="form-group col-sm-12">
-                    <label for="size">{{labels.forms.meetup.eventCity}}</label>
+                    <label for="eventCity">{{labels.forms.meetup.eventCity}}</label>
                     <input type="text" name="eventCity" id="eventCity"
                            placeholder="{{labels.forms.meetup.eventCityPlaceHolder}}" class="form-control">
                 </div>
 
                 <div class="form-group col-sm-12">
-                    <label for="size">{{labels.forms.meetup.eventAddress}}</label>
+                    <label for="eventAddress">{{labels.forms.meetup.eventAddress}}</label>
                     <input type="text" name="eventAddress" id="eventAddress"
                            placeholder="{{labels.forms.meetup.eventAddressPlaceHolder}}" class="form-control">
                 </div>
@@ -80,7 +80,7 @@
                            aria-hidden="true"></i> {{labels.forms.meetup.additionalInformation}}</legend>
 
                 <div class="form-group col-sm-12">
-                    <label for="size" class="meetup9-color">{{labels.forms.meetup.eventCost}} (*)</label>
+                    <label for="eventCost" class="meetup9-color">{{labels.forms.meetup.eventCost}} (*)</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></div>
                         <input type="number" name="eventCost" id="eventCost"
@@ -89,7 +89,7 @@
                 </div>
 
                 <div class="form-group col-sm-12">
-                    <label for="size">{{labels.forms.meetup.eventGuest}} (*)</label>
+                    <label for="eventGuest">{{labels.forms.meetup.eventGuest}} (*)</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></div>
                         <select name="eventGuest" id="eventGuest" class="form-control">
