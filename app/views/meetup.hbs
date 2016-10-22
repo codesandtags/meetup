@@ -38,7 +38,6 @@
 
 <script>
     $(document).ready(function() {
-        loadCountries('#countries');
 
         function scrollToAnchor(aid){
             var aTag = $("a[name='"+ aid +"']");
@@ -48,6 +47,8 @@
         $('#scrollDown').click(function() {
            scrollToAnchor($(this).attr('href').replace('#',''));
         });
+
+        loadCountries('#countries');
     });
 
 </script>

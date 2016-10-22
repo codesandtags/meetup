@@ -1,20 +1,20 @@
 /* eslint-env browser */
-(function () {
+(function() {
     'use strict';
 
-    $('.flip-control').on('click', function () {
+    $('.flip-control').on('click', function() {
         $(this).closest('.card').toggleClass('flipped');
     });
 
     // Event handler when user press the tabs
-    $('.signup-tab').click(function () {
-        setTimeout(function () {
+    $('.signup-tab').click(function() {
+        setTimeout(function() {
             $('#signupForm').find('input[name=firstName]').focus()
         }, 200);
     });
 
-    $('.signin-tab').click(function () {
-        setTimeout(function () {
+    $('.signin-tab').click(function() {
+        setTimeout(function() {
             $('#signinForm').find('input[name=email]').focus()
         }, 200);
     });
@@ -53,7 +53,7 @@
                 }
             }
         })
-        .on('success.form.fv', function (e) {
+        .on('success.form.fv', function(e) {
             e.preventDefault();
             var account = {
                 email: $(this).find('input[name=email]').val(),
@@ -64,7 +64,7 @@
                 type: 'POST',
                 url: '/api/users/login',
                 data: account
-            }).done(function (response) {
+            }).done(function(response) {
 
                 if (response.code) {
                     var $errorLogin = $('.error-login');
@@ -85,7 +85,7 @@
                     window.location.replace("/");
                 }
 
-            }).fail(function () {
+            }).fail(function() {
                 console.log('Upsss there an error!');
             });
 
@@ -148,7 +148,7 @@
                 }
             }
         })
-        .on('success.form.fv', function (e) {
+        .on('success.form.fv', function(e) {
             e.preventDefault();
             var account = {
                 email: $(this).find('input[name=email]').val(),
@@ -164,7 +164,7 @@
                 type: 'POST',
                 url: '/api/users/signup',
                 data: account
-            }).done(function (response) {
+            }).done(function(response) {
                 if (response.status === 200) {
                     $('.message-sign-up').addClass('has-success');
                     $('.message-sign-up').removeClass('has-danger');
@@ -176,12 +176,51 @@
 
                 $('.message-sign-up .form-control-feedback').html(response.message);
                 $('.message-sign-up').fadeIn();
-            }).fail(function () {
+            }).fail(function() {
                 $('.message-sign-up').addClass('has-danger');
                 $('.message-sign-up .form-control-feedback').html('The user could be registered');
                 $('.message-sign-up').fadeIn();
             });
 
+        });
+
+    // Create Meetup Form
+    $('#createMeetupForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'fa fa-check',
+                invalid: 'fa fa-times',
+                validating: 'fa fa-refresh'
+            },
+            fields: {
+                eventName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The name of the event is required'
+                        },
+                        stringLength: {
+                            min: 5,
+                            message: 'The name of the event must be more than 5 characters long'
+                        }
+                    }
+                }
+            }
+        })
+        .on('success.form.fv', function(e) {
+            e.preventDefault();
+            var meetup = {};
+
+            debugger;
+            $.ajax({
+                type: 'POST',
+                url: '/api/meetup/create',
+                data: account
+            }).done(function(response) {
+
+            }).fail(function() {
+
+            });
         });
 
 })();
