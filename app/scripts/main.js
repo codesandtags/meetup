@@ -200,8 +200,79 @@
                             message: 'The name of the event is required'
                         },
                         stringLength: {
-                            min: 5,
-                            message: 'The name of the event must be more than 5 characters long'
+                            min: 4,
+                            message: 'The name of the event must be more than 4 characters long'
+                        }
+                    }
+                },
+                eventType: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The type of the event is required'
+                        },
+                        stringLength: {
+                            min: 4,
+                            message: 'The type of the event must be more than 4 characters long'
+                        }
+                    }
+                },
+                eventHost: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The event host is required'
+                        },
+                        stringLength: {
+                            min: 4,
+                            message: 'The event host must be more than 4 characters long'
+                        }
+                    }
+                },
+                eventStartDate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The event start date is required. '
+                        }
+                    }
+                },
+                eventStartTime: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The event start time is required. '
+                        }
+                    }
+                },
+                eventEndDate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The event end date is required. '
+                        }
+                    }
+                },
+                eventEndTime: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The event end time is required. '
+                        }
+                    }
+                },
+                eventCountry: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The country is required.'
+                        }
+                    }
+                },
+                eventCity: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The city is required.'
+                        }
+                    }
+                },
+                eventAddress: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The address is required.'
                         }
                     }
                 }
@@ -209,6 +280,7 @@
         })
         .on('success.form.fv', function(e) {
             e.preventDefault();
+            alert('enviando');
             var meetup = {};
 
             debugger;

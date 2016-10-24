@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
         meetups: [
             {
                 title: "Let's see the Sunset",
-                img: "images/events/beach.jpg",
+                img: "images/meeting-filter.jpg",
                 abstract: "We are going to see the sunset drinking some beers. Please confirm before to go the event...",
                 description: "We are going to see the sunset drinking some beers, also we want to dance and talk about our experiences. Please confirm before to go the event",
                 date: "Wednesday, Aug 17",
@@ -27,7 +27,7 @@ router.get('/', function (req, res, next) {
             },
             {
                 title: "Let's see the Sunset",
-                img: "images/events/hiking.jpg",
+                img: "images/meeting-filter.jpg",
                 abstract: "We are going to see the sunset drinking some beers. Please confirm before to go the event...",
                 description: "We are going to see the sunset drinking some beers, also we want to dance and talk about our experiences. Please confirm before to go the event",
                 date: "Wednesday, Aug 17",
@@ -42,7 +42,7 @@ router.get('/', function (req, res, next) {
             },
             {
                 title: "Let's see the Sunset",
-                img: "images/events/picnic.jpg",
+                img: "images/meeting-filter.jpg",
                 abstract: "We are going to see the sunset drinking some beers. Please confirm before to go the event...",
                 description: "We are going to see the sunset drinking some beers, also we want to dance and talk about our experiences. Please confirm before to go the event",
                 date: "Wednesday, Aug 17",
@@ -57,7 +57,7 @@ router.get('/', function (req, res, next) {
             },
             {
                 title: "Let's see the Sunset",
-                img: "images/events/yoga.jpg",
+                img: "images/meeting-filter.jpg",
                 abstract: "We are going to see the sunset drinking some beers. Please confirm before to go the event...",
                 description: "We are going to see the sunset drinking some beers, also we want to dance and talk about our experiences. Please confirm before to go the event",
                 date: "Wednesday, Aug 17",
@@ -72,7 +72,7 @@ router.get('/', function (req, res, next) {
             },
             {
                 title: "Let's see the Sunset",
-                img: "images/events/beach.jpg",
+                img: "images/meeting-filter.jpg",
                 abstract: "We are going to see the sunset drinking some beers. Please confirm before to go the event...",
                 description: "We are going to see the sunset drinking some beers, also we want to dance and talk about our experiences. Please confirm before to go the event",
                 date: "Wednesday, Aug 17",
