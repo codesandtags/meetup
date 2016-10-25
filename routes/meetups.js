@@ -25,6 +25,10 @@ router.get('/list', function(req, res, next) {
             for (var meetupId in meetups) {
                 var meetup = meetups[meetupId];
                 meetup.id = meetupId;
+                meetup.eventStartDate = getEventFormatDate(meetup.eventStartDate);
+                meetup.eventEndDate = getEventFormatDate(meetup.eventEndDate);
+                meetup.eventCost = (meetup.eventCost === '0') ? 'Free' : meetup.eventCost;
+                meetup.eventGuest = getTextEventGuestList(meetup.eventGuest);
 
                 meetupList.push(meetup);
             }
@@ -35,6 +39,35 @@ router.get('/list', function(req, res, next) {
     //res.send('Doing something');
 });
 
+function getEventFormatDate(date) {
+    var eventDate = new Date(date);
+
+    return eventDate.toDateString().split(' ').splice(1).join(' ') + ', ' + eventDate.toLocaleTimeString();
+}
+
+function getTextEventGuestList(eventList) {
+    var textEventList;
+
+    switch (eventList) {
+        case '0_10':
+            textEventList = '1 to 10 People';
+            break;
+        case '10_20':
+            textEventList = '10 to 20 People';
+            break;
+        case '20_50':
+            textEventList = '20 to 50 People';
+            break;
+        case 'more_than_50':
+            textEventList = 'More than 50 People';
+            break;
+        default:
+            textEventList = 'N/A';
+    }
+
+    return textEventList;
+}
+
 
 router.post('/create', function(req, res) {
     sess = req.session;
@@ -42,14 +75,9 @@ router.post('/create', function(req, res) {
     if (sess && sess.user) {
         var meetup = req.body;
 
-        console.log('Session:', sess);
-        console.log('Creando usuario', meetup);
-        console.log(meetup.eventStartDate);
-
         meetup.userId = sess.user.uid;
         meetup.eventStarDate = meetup.eventStartDate.replace('T', ' ');
         meetup.eventEndDate = meetup.eventEndDate.replace('T', ' ');
-        console.log(meetup);
 
         firebase
             .database()

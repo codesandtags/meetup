@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
         {{#each meetups}}
-            asdfasf
             <div class="col-sm-6 col-md-6 col-lg-4">
                 <!--Card-->
                 <div class="card flip">
@@ -19,8 +18,8 @@
                             <p class="card-text"><em>{{eventType}}</em></p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fa fa-usd"></i> Free</li>
-                            <li class="list-group-item"><i class="fa fa-users"></i> 10 - 20 People</li>
+                            <li class="list-group-item"><i class="fa fa-usd"></i> {{eventCost}}</li>
+                            <li class="list-group-item"><i class="fa fa-users"></i> {{eventGuest}}</li>
                         </ul>
                         <!--/.Card content-->
 
@@ -29,7 +28,9 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-sm-1 col-md-1 col-lg-1"><i class="fa fa-calendar"></i></div>
-                                <div class="col-sm-10 col-md-10 col-lg-10">Wednesday, Aug 17 7:00 PM</div>
+                                <div class="col-sm-10 col-md-10 col-lg-10"><strong>Start</strong> {{eventStartDate}}</div>
+                                <div class="col-sm-1 col-md-1 col-lg-1"><i class= "fa fa-calendar"></i></div>
+                                <div class="col-sm-10 col-md-10 col-lg-10"><strong>End</strong> {{eventEndDate}}</div>
                             </div>
                             <div class="view-details">
                                 <div class="flip-control">
@@ -44,11 +45,9 @@
                         <div class="card-block">
                             <a href="#!" class="flip-control pull-right"><i class="fa fa-chevron-circle-left"></i></a>
                             <!--Title-->
-                            <h4 class="card-title">Let's see the Sunset</h4>
+                            <h4 class="card-title">{{eventName}}</h4>
                             <!--Text-->
-                            <p class="card-text">We are going to see the sunset drinking some beers. Please confirm
-                                before to go the
-                                event.</p>
+                            <p class="card-text">{{description}}</p>
                             <div class="table-responsive">
                                 <table class="table table-hover table-details">
                                     <!--Table body-->
@@ -59,7 +58,15 @@
                                             <i class="fa fa-calendar"></i>
                                         </th>
                                         <td>
-                                            Wednesday, Aug 17 7:00 PM
+                                            Start {{eventStartDate}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <i class="fa fa-calendar"></i>
+                                        </th>
+                                        <td>
+                                            End {{eventEndDate}}
                                         </td>
                                     </tr>
                                     <!--/First row-->
@@ -69,8 +76,8 @@
                                             <i class="fa fa-map-marker"></i>
                                         </th>
                                         <td>
-                                            <span class="font-weight-bold">Atom House,</span>
-                                            Carrera 7 # 54-14, Bogotá
+                                            <span class="font-weight-bold">{{eventCity}},</span>
+                                            {{eventAddress}}
                                         </td>
                                     </tr>
                                     <!--/Second row-->
@@ -80,7 +87,7 @@
                                             <i class="fa fa-users"></i>
                                         </th>
                                         <td>
-                                            10 - 20 People
+                                            {{eventGuest}}
                                         </td>
                                     </tr>
                                     <!--/Third row-->
@@ -90,7 +97,7 @@
                                             <i class="fa fa-usd"></i>
                                         </th>
                                         <td>
-                                            Free
+                                            {{eventCost}}
                                         </td>
                                     </tr>
                                     <!--/Fourth row-->
@@ -99,10 +106,12 @@
                                 </table>
                             </div>
                             <!--/Table Details-->
+                            <!--
                             <div class="register-button">
                                 <a href="#" class="btn btn-success waves-effect waves-light">Register</a>
                                 <a href="#" class="btn btn-info waves-effect waves-light">Read More</a>
                             </div>
+                            -->
                         </div>
                     </div>
                 </div>
