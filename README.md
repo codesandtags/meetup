@@ -42,10 +42,6 @@ gulp serve
 - Use firebase as database and authentication of the users
 - Validations using formValidation library
 
-## Notable changes from 1.0
-- Setup project using [Web Starter Kit](https://developers.google.com/web/tools/starter-kit/) by Google.
-- Defined the color styles using Material Design library.
-
 ## Licence
 **
 Apache 2.0
