@@ -266,8 +266,7 @@
         })
         .on('success.form.fv', function(e) {
             e.preventDefault();
-            alert('enviando');
-            debugger;
+
             var meetup = {
                 eventName: $(this).find('input[name=eventName]').val(),
                 eventType: $(this).find('input[name=eventType]').val(),
@@ -287,11 +286,23 @@
                 url: '/api/meetups/create',
                 data: meetup
             }).done(function(response) {
-                var cosa = 1;
-                alert(response);
+
+                if (response.status === 200) {
+                    $('.message-meetup-form').addClass('has-success');
+                    $('.message-meetup-form').removeClass('has-danger');
+                    $('#createMeetupForm').trigger('reset');
+                } else {
+                    $('.message-meetup-form').removeClass('has-success');
+                    $('.message-meetup-form').addClass('has-danger');
+                }
+
+                $('.message-meetup-form .form-control-feedback').html(response.message);
+                $('.message-meetup-form').fadeIn();
 
             }).fail(function() {
-                debugger;
+                $('.message-meetup-form').addClass('has-danger');
+                $('.message-meetup-form .form-control-feedback').html('The user could be registered');
+                $('.message-meetup-form').fadeIn();
             });
         });
 

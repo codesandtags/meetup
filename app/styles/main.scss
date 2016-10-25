@@ -435,7 +435,7 @@ body {
   display: none;
 }
 
-.message-sign-up {
+.message-sign-up, .message-meetup-form {
   display: none;
 }
 
@@ -528,4 +528,14 @@ input[type="date"]:valid:before {
       font-size: 3em;
     }
   }
+}
+
+.truncate {
+  margin: 0 auto;
+  display: -webkit-box;
+  text-overflow-multiline: ellipsis;
+  -webkit-line-clamp:3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

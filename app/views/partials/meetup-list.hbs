@@ -3,116 +3,47 @@
         {{#each meetups}}
             <div class="col-sm-6 col-md-6 col-lg-4">
                 <!--Card-->
-                <div class="card flip">
-                    <div class="face front">
+                <div class="card">
+                    <div class="">
                         <!--Card image-->
-
-                            <div class="card-image" style="background-image: url('./images/meeting-filter.jpg')"></div>
-
+                        <div class="card-image" style="background-image: url('./images/meeting-filter.jpg')"></div>
                         <!--/.Card image-->
 
                         <!--Card content-->
                         <div class="card-block">
                             <h4 class="card-title">{{eventName}}</h4>
-                            <h6 class="card-subtitle text-muted">Category</h6>
-                            <p class="card-text"><em>{{eventType}}</em></p>
+                            <h6 class="card-subtitle text-muted">{{eventType}}</h6>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><i class="fa fa-usd"></i> {{eventCost}}</li>
                             <li class="list-group-item"><i class="fa fa-users"></i> {{eventGuest}}</li>
+                            <li class="list-group-item"><i class="fa fa-map-marker"></i> {{eventAddress}}, {{eventCity}}</li>
                         </ul>
                         <!--/.Card content-->
+
+                        <!-- Card description -->
+                        <div class="card-block card-description">
+                            <p class="card-text truncate">{{description}}</p>
+                        </div>
+                        <!--/ Card description -->
 
 
                         <!-- Card footer -->
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-sm-1 col-md-1 col-lg-1"><i class="fa fa-calendar"></i></div>
-                                <div class="col-sm-10 col-md-10 col-lg-10"><strong>Start</strong> {{eventStartDate}}</div>
-                                <div class="col-sm-1 col-md-1 col-lg-1"><i class= "fa fa-calendar"></i></div>
+                                <div class="col-sm-10 col-md-10 col-lg-10"><strong>Start</strong> {{eventStartDate}}
+                                </div>
+                                <div class="col-sm-1 col-md-1 col-lg-1"><i class="fa fa-calendar"></i></div>
                                 <div class="col-sm-10 col-md-10 col-lg-10"><strong>End</strong> {{eventEndDate}}</div>
                             </div>
                             <div class="view-details">
-                                <div class="flip-control">
+                                <div>
                                     <a href="#!"><i class="fa fa-chevron-circle-right"></i> Review Details</a>
                                 </div>
                             </div>
                         </div>
                         <!-- Card footer -->
-                    </div>
-
-                    <div class="face back">
-                        <div class="card-block">
-                            <a href="#!" class="flip-control pull-right"><i class="fa fa-chevron-circle-left"></i></a>
-                            <!--Title-->
-                            <h4 class="card-title">{{eventName}}</h4>
-                            <!--Text-->
-                            <p class="card-text">{{description}}</p>
-                            <div class="table-responsive">
-                                <table class="table table-hover table-details">
-                                    <!--Table body-->
-                                    <tbody>
-                                    <!--First row-->
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="fa fa-calendar"></i>
-                                        </th>
-                                        <td>
-                                            Start {{eventStartDate}}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="fa fa-calendar"></i>
-                                        </th>
-                                        <td>
-                                            End {{eventEndDate}}
-                                        </td>
-                                    </tr>
-                                    <!--/First row-->
-                                    <!--Second row-->
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="fa fa-map-marker"></i>
-                                        </th>
-                                        <td>
-                                            <span class="font-weight-bold">{{eventCity}},</span>
-                                            {{eventAddress}}
-                                        </td>
-                                    </tr>
-                                    <!--/Second row-->
-                                    <!--Third row-->
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="fa fa-users"></i>
-                                        </th>
-                                        <td>
-                                            {{eventGuest}}
-                                        </td>
-                                    </tr>
-                                    <!--/Third row-->
-                                    <!--Fourth row-->
-                                    <tr>
-                                        <th scope="row">
-                                            <i class="fa fa-usd"></i>
-                                        </th>
-                                        <td>
-                                            {{eventCost}}
-                                        </td>
-                                    </tr>
-                                    <!--/Fourth row-->
-                                    </tbody>
-                                    <!--/Table body-->
-                                </table>
-                            </div>
-                            <!--/Table Details-->
-                            <!--
-                            <div class="register-button">
-                                <a href="#" class="btn btn-success waves-effect waves-light">Register</a>
-                                <a href="#" class="btn btn-info waves-effect waves-light">Read More</a>
-                            </div>
-                            -->
-                        </div>
                     </div>
                 </div>
                 <!--/.Card-->
