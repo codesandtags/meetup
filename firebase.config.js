@@ -10,7 +10,8 @@ module.exports = {
     },
     CONSTANTS: {
         REFS: {
-            USERS: 'users'
+            USERS: 'users',
+            MEETUPS: 'meetups'
         }
     }
 };

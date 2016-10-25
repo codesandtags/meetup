@@ -1,11 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var firebase = require("firebase");
-var firebaseConfig = require("../firebase.config.js");
+var firebaseConfig = require("../firebase.config");
 var CONSTANTS = firebaseConfig.CONSTANTS;
 var sess;
-
-firebase.initializeApp(firebaseConfig.getConfig());
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

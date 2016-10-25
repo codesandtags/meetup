@@ -6,19 +6,19 @@
 
                 <div class="form-group col-sm-12">
                     <label for="eventName" class="control-label">{{labels.forms.meetup.eventName}} (*)</label>
-                    <input type="text" name="eventName" id="eventName" required
+                    <input type="text" name="eventName" id="eventName" required autocomplete="true"
                            placeholder="{{labels.forms.meetup.eventNamePlaceHolder}}" class="form-control">
                 </div>
 
                 <div class="form-group col-sm-12">
                     <label for="eventType" class="control-label">{{labels.forms.meetup.eventType}} (*)</label>
-                    <input type="text" name="eventType" id="eventType" required
+                    <input type="text" name="eventType" id="eventType" required autocomplete="true"
                            placeholder="{{labels.forms.meetup.eventTypePlaceHolder}}" class="form-control">
                 </div>
 
                 <div class="form-group col-sm-12">
                     <label for="eventHost" class="control-label">{{labels.forms.meetup.eventHost}} (*)</label>
-                    <input type="text" name="eventHost" id="eventHost" required
+                    <input type="text" name="eventHost" id="eventHost" required autocomplete="true"
                            placeholder="{{labels.forms.meetup.eventHostPlaceHolder}}" class="form-control">
                 </div>
 
@@ -37,9 +37,7 @@
 
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
-                        <input type="date" class="form-control" name="eventStartDate" required>
-                        <div class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-                        <input type="time" class="form-control" name="eventStartTime" required>
+                        <input type="datetime-local" class="form-control" name="eventStartDate" required >
                     </div>
                 </div>
 
@@ -48,15 +46,13 @@
 
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-calendar-o" aria-hidden="true"></i></div>
-                        <input type="date" class="form-control" name="eventEndDate" required>
-                        <div class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-                        <input type="time" class="form-control" name="eventEndTime" required>
+                        <input type="datetime-local" class="form-control" name="eventEndDate" required>
                     </div>
                 </div>
 
                 <div class="form-group col-sm-12">
                     <label for="country" class="control-label">{{labels.forms.meetup.eventCountry}} (*)</label>
-                    <input type="text" name="country" class="form-control" required
+                    <input type="text" name="country" class="form-control" required autocomplete="true"
                            placeholder="{{labels.forms.meetup.eventCountryPlaceHolder}}" list="countries">
                     <datalist id="countries"></datalist>
                 </div>

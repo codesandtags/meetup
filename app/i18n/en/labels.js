@@ -41,7 +41,7 @@ module.exports = {
             "eventCityPlaceHolder": "Bogota",
             "eventAddress": "Address",
             "eventAddressPlaceHolder": "Street 12 corner five, close to Book's Shop",
-            "eventGuest": "How many guest are you hope?",
+            "eventGuest": "How many guest are you hoping?",
             "eventGuestPlaceHolder": "10, 20, 30...",
             "eventCost": "How much does the ticket cost? (in USD)",
             "eventCostPlaceHolder": "0 (free), 10, 30, 50",

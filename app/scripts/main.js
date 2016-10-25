@@ -230,28 +230,14 @@
                 eventStartDate: {
                     validators: {
                         notEmpty: {
-                            message: 'The event start date is required. '
-                        }
-                    }
-                },
-                eventStartTime: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The event start time is required. '
+                            message: 'The event start date and time is required. '
                         }
                     }
                 },
                 eventEndDate: {
                     validators: {
                         notEmpty: {
-                            message: 'The event end date is required. '
-                        }
-                    }
-                },
-                eventEndTime: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The event end time is required. '
+                            message: 'The event end date and time is required. '
                         }
                     }
                 },
@@ -281,17 +267,31 @@
         .on('success.form.fv', function(e) {
             e.preventDefault();
             alert('enviando');
-            var meetup = {};
-
             debugger;
+            var meetup = {
+                eventName: $(this).find('input[name=eventName]').val(),
+                eventType: $(this).find('input[name=eventType]').val(),
+                eventHost: $(this).find('input[name=eventHost]').val(),
+                description: $(this).find('textarea[name=description]').val(),
+                eventStartDate: $(this).find('input[name=eventStartDate]').val(),
+                eventEndDate: $(this).find('input[name=eventEndDate]').val(),
+                country: $(this).find('input[name=country]').val(),
+                eventCity: $(this).find('input[name=eventCity]').val(),
+                eventAddress: $(this).find('input[name=eventAddress]').val(),
+                eventCost: $(this).find('input[name=eventCost]').val(),
+                eventGuest: $(this).find('select[name=eventGuest]').val()
+            };
+
             $.ajax({
                 type: 'POST',
-                url: '/api/meetup/create',
-                data: account
+                url: '/api/meetups/create',
+                data: meetup
             }).done(function(response) {
+                var cosa = 1;
+                alert(response);
 
             }).fail(function() {
-
+                debugger;
             });
         });
 

@@ -39,14 +39,25 @@
 <script>
     $(document).ready(function() {
 
-        function scrollToAnchor(aid){
-            var aTag = $("a[name='"+ aid +"']");
-            $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+        function scrollToAnchor(aid) {
+            var aTag = $("a[name='" + aid + "']");
+            $('html,body').animate({scrollTop: aTag.offset().top}, 'slow');
         }
 
         $('#scrollDown').click(function() {
-           scrollToAnchor($(this).attr('href').replace('#',''));
+            scrollToAnchor($(this).attr('href').replace('#', ''));
         });
+
+        // Adding validation for min datepicker
+        var today = new Date(),
+            year = today.getFullYear(),
+            month = (today.getMonth() < 9) ? '0' + (today.getMonth()+1) : (today.getMonth()+1),
+            day = (today.getDate() < 10 ) ? '0' + today.getDate() : today.getDate();
+
+        today = year + '-' + month + '-' + day + 'T00:00:00';
+
+        $('input[name=eventStartDate]').attr('min', today);
+        $('input[name=eventEndDate]').attr('min', today);
 
         loadCountries('#countries');
     });

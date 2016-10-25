@@ -9,7 +9,6 @@ var hbs = require('express-hbs');
 var helpers = require('handlebars-helpers')({
     handlebars: hbs
 });
-
 var labels = require('./app/i18n/en/labels');
 
 var routes = require('./routes/index');
