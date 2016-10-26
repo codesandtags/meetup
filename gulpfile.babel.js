@@ -62,7 +62,7 @@ gulp.task('copy-i18n', () =>
 
 gulp.task('copy-vendor-files', function() {
     //fonts
-    gulp.src('./bower_components/font-awesome' + gulpConfig.app.fonts.src)
+    gulp.src('./bower_components/font-awesome/fonts/**/*.{ttf,woff,eof,svg,woff2}')
         .pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.fonts.des));
 
     //scripts
@@ -71,7 +71,9 @@ gulp.task('copy-vendor-files', function() {
         './bower_components/jquery/dist/jquery.min.js',
         './bower_components/bootstrap/dist/js/bootstrap.min.js',
         './bower_components/tether/dist/js/tether.min.js',
-        './bower_components/holderjs/holder.min.js'
+        './bower_components/holderjs/holder.min.js',
+        './bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+        './bower_components/moment/min/moment.min.js'
     ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.scripts.vendor));
 
     // Form Validation
@@ -91,6 +93,7 @@ gulp.task('copy-vendor-files', function() {
         './bower_components/bootstrap/dist/css/bootstrap.min.css',
         './bower_components/tether/dist/css/tether.min.css',
         './bower_components/font-awesome/css/font-awesome.min.css',
+        './bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
     ]).pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.styles.vendor));
 
     // Form Validation
@@ -120,7 +123,7 @@ gulp.task('styles', () => {
     ];
 
     // For best performance, don't add Sass partials to `gulp.src`
-    return gulp.src(gulpConfig.app.styles.src)
+    gulp.src(gulpConfig.app.styles.src)
         .pipe($.newer('.tmp/styles'))
         .pipe($.sourcemaps.init())
         .pipe($.sass({
@@ -133,6 +136,11 @@ gulp.task('styles', () => {
         .pipe($.size({title: 'styles'}))
         .pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.styles.des));
+
+    // Copy fonts
+    gulp.src(gulpConfig.app.fonts.src)
+        .pipe(gulp.dest(gulpConfig.dist + gulpConfig.app.fonts.des));
+
 });
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.

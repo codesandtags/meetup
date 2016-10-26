@@ -50,9 +50,9 @@
 
         // Adding validation for min datepicker
         var today = new Date(),
-            year = today.getFullYear(),
-            month = (today.getMonth() < 9) ? '0' + (today.getMonth()+1) : (today.getMonth()+1),
-            day = (today.getDate() < 10 ) ? '0' + today.getDate() : today.getDate();
+                year = today.getFullYear(),
+                month = (today.getMonth() < 9) ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1),
+                day = (today.getDate() < 10 ) ? '0' + today.getDate() : today.getDate();
 
         today = year + '-' + month + '-' + day + 'T00:00:00';
 
@@ -60,6 +60,14 @@
         $('input[name=eventEndDate]').attr('min', today);
 
         loadCountries('#countries');
+
+        $('#datetimeEventStart').datetimepicker({
+            format: 'YYYY/MM/DD HH:mm'
+        });
+
+        $('#datetimeEventEnd').datetimepicker({
+            format: 'YYYY/MM/DD HH:mm'
+        });
     });
 
 </script>

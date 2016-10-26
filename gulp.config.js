@@ -16,7 +16,7 @@ module.exports = {
             "vendor": "/styles/vendor/"
         },
         "fonts": {
-            "src": "/fonts/**/*.{ttf,woff,eof,svg,woff2}",
+            "src": "./app/styles/fonts/**/*.{ttf,woff,eof,svg,woff2}",
             "des": "/styles/fonts/"
         },
         "images": {
