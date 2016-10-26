@@ -27,7 +27,7 @@ router.get('/list', function(req, res, next) {
                 meetup.id = meetupId;
                 meetup.eventStartDate = getEventFormatDate(meetup.eventStartDate);
                 meetup.eventEndDate = getEventFormatDate(meetup.eventEndDate);
-                meetup.eventCost = (meetup.eventCost === '0') ? 'Free' : meetup.eventCost;
+                meetup.eventCost = (meetup.eventCost === '0' || meetup.eventCost === '') ? 'Free' : meetup.eventCost;
                 meetup.eventGuest = getTextEventGuestList(meetup.eventGuest);
 
                 meetupList.push(meetup);

@@ -23,6 +23,12 @@
                 </div>
 
                 <div class="form-group col-sm-12">
+                    <label for="eventGuestList" class="control-label">{{labels.forms.meetup.eventGuestList}} (*)</label>
+                    <input type="text" name="eventGuestList" id="eventGuestList" required autocomplete="true"
+                           placeholder="{{labels.forms.meetup.eventGuestListPlaceHolder}}" class="form-control">
+                </div>
+
+                <div class="form-group col-sm-12">
                     <label for="description" class="control-label">{{labels.forms.meetup.description}} (Optional)</label>
                     <textarea id="description" name="description" class="form-control"></textarea>
                 </div>

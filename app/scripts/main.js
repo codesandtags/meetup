@@ -227,6 +227,17 @@
                         }
                     }
                 },
+                eventGuestList: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The event guest list is required'
+                        },
+                        stringLength: {
+                            min: 4,
+                            message: 'The event should have more than 4 characters long'
+                        }
+                    }
+                },
                 eventStartDate: {
                     validators: {
                         notEmpty: {
@@ -271,6 +282,7 @@
                 eventName: $(this).find('input[name=eventName]').val(),
                 eventType: $(this).find('input[name=eventType]').val(),
                 eventHost: $(this).find('input[name=eventHost]').val(),
+                eventGuestList: $(this).find('input[name=eventGuestList]').val(),
                 description: $(this).find('textarea[name=description]').val(),
                 eventStartDate: $(this).find('input[name=eventStartDate]').val(),
                 eventEndDate: $(this).find('input[name=eventEndDate]').val(),
