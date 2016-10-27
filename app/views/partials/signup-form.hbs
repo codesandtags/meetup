@@ -5,12 +5,13 @@
     </div>
     <div class="form-group">
         <label class="sr-only" for="firstName">{{labels.forms.firstName}}</label>
-        <input type="text" name="firstName" class="form-control" id="firstName"
-               placeholder="{{labels.forms.firstName}} *" required>
+            <input type="text" name="firstName" class="form-control" id="firstName"
+                   placeholder="{{labels.forms.firstName}} *" required
+                   {{#ifCond activeTab '==' 'signup'}}autofocus{{/ifCond}}>
     </div>
     <div class="form-group">
         <label class="sr-only" for="lastName">{{labels.forms.lastName}}</label>
-        <input type="text" name="lastName" class="form-control" id="lastName"
+        <input type="text" name="lastName" class="form-control" id="lastName" autocomplete="true"
                placeholder="{{labels.forms.lastName}} *" required>
     </div>
     <div class="form-group">
@@ -31,13 +32,13 @@
     </div>
     <div class="form-group">
         <label class="sr-only" for="jobTitle">{{labels.forms.jobTitle}}</label>
-        <input type="text" name="jobTitle" class="form-control" id="jobTitle"
-               placeholder="{{labels.forms.jobTitle}} (optional)" >
+        <input type="text" name="jobTitle" class="form-control" id="jobTitle" autocomplete="true"
+               placeholder="{{labels.forms.jobTitle}} (optional)">
     </div>
     <div class="form-group">
         <label class="sr-only" for="birthday">{{labels.forms.birthday}}</label>
         <input type="date" name="birthday" class="form-control" id="birthday"
-               placeholder="{{labels.forms.birthday}} (optional)" >
+               placeholder="{{labels.forms.birthday}} (optional)">
     </div>
     <div class="form-group text-xs-center">
         <button type="submit" class="btn btn-info">{{labels.menu.signUp}}</button>
