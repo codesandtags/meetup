@@ -21,13 +21,15 @@
         <div class="col-md-6 offset-sm-3">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link signin-tab {{#ifCond activeTab '==' 'signin'}}active{{/ifCond}}" href="#signin" role="tab" data-toggle="tab"><i
+                    <a class="nav-link signin-tab {{#ifCond activeTab '==' 'signin'}}active{{/ifCond}}" href="#signin"
+                       role="tab" data-toggle="tab"><i
                             class="fa fa-user"
                             aria-hidden="true"></i> {{labels.menu.signIn}}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link signup-tab {{#ifCond activeTab '==' 'signup'}}active{{/ifCond}}" href="#signup" role="tab" data-toggle="tab"><i
+                    <a class="nav-link signup-tab {{#ifCond activeTab '==' 'signup'}}active{{/ifCond}}" href="#signup"
+                       role="tab" data-toggle="tab"><i
                             class="fa fa-user-plus"
                             aria-hidden="true"></i> {{labels.menu.signUp}}
                     </a>
@@ -35,10 +37,12 @@
             </ul>
             <!-- Tab panes -->
             <div class="tab-content form-sign-in">
-                <div role="tabpanel" class="tab-pane {{#ifCond activeTab '==' 'signin'}}fade in active{{/ifCond}}" id="signin">
+                <div role="tabpanel" class="tab-pane {{#ifCond activeTab '==' 'signin'}}fade in active{{/ifCond}}"
+                     id="signin">
                     {{>signin-form}}
                 </div>
-                <div role="tabpanel" class="tab-pane {{#ifCond activeTab '==' 'signup'}}fade in active{{/ifCond}}" id="signup">
+                <div role="tabpanel" class="tab-pane {{#ifCond activeTab '==' 'signup'}}fade in active{{/ifCond}}"
+                     id="signup">
                     {{>signup-form}}
                 </div>
             </div>
@@ -50,8 +54,25 @@
 {{>scripts}}
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         loadCountries('#countries');
+
+        $('#signupForm').find('input[required]').on('blur', updateProgressBar);
+
+        /**
+         * Update the progressBar in the form in order to show the progress in the form
+         * to the user.
+         */
+        function updateProgressBar() {
+            var $fields = $('#signupForm').find('input[required]'),
+                $fieldsFilled = $fields.filter(function() {
+                    return $(this).val() !== '' && $(this).parent().hasClass('has-success');
+                }),
+                $progressBar = $('#signupForm progress');
+
+            $progressBar.val($fieldsFilled.length / $fields.length * 100);
+        }
+
     });
 </script>
 
