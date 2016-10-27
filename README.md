@@ -27,10 +27,17 @@ npm install && bower install
 #### Run development tasks:
 By default *gulp* command run the *development* task.
 
+- Start the server in development mode
 ```
 gulp
 gulp serve
 ```
+
+- Start the server in production mode
+```
+gulp && npm start
+```
+
 
 ### Features
 
@@ -38,6 +45,7 @@ gulp serve
 - Sign In and Sign Up form
 - Create meetup event form
 - i18n basic using a Json object and handlebars
+- Datepickers for dates and validations using moment and formValidation
 - Show the latest meetups events in the main page
 - Use firebase as database and authentication of the users
 - Validations using formValidation library
