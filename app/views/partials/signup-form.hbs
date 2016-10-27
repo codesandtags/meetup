@@ -1,5 +1,7 @@
 <p class="text-sm-center text-muted">Create your account and start your <strong>Meetup</strong></p>
 <form id="signupForm">
+    <progress class="col-sm-12" value="0" max="100"></progress>
+
     <div class="form-group message-sign-up has-feedback">
         <div class="form-control-feedback"></div>
     </div>
@@ -41,6 +43,6 @@
                placeholder="{{labels.forms.birthday}} (optional)">
     </div>
     <div class="form-group text-xs-center">
-        <button type="submit" class="btn btn-info">{{labels.menu.signUp}}</button>
+        <button type="submit" class="btn btn-info" disabled>{{labels.menu.signUp}}</button>
     </div>
 </form>
