@@ -540,6 +540,21 @@ input[type="date"]:valid:before {
   text-overflow: ellipsis;
 }
 
+.card-description {
+  height: 100px;
+}
+
+.truncate-title-card {
+  margin: 0 auto;
+  display: -webkit-box;
+  text-overflow-multiline: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 60px;
+}
+
 /** Support for Glyphicons **/
 @font-face {
   font-family: 'Glyphicons Halflings';

@@ -184,6 +184,8 @@
 
         });
 
+    var TIME_PATTERN = /^(09|1[0-7]{1}):[0-5]{1}[0-9]{1}$/;
+
     // Create Meetup Form
     $('#createMeetupForm')
         .formValidation({
@@ -239,16 +241,38 @@
                     }
                 },
                 eventStartDate: {
+                    trigger: 'blur',
                     validators: {
                         notEmpty: {
                             message: 'The event start date and time is required. '
+                        },
+                        callback: {
+                            message: 'The event start date must be earlier than the event end date',
+                            callback: function(value, validator) {
+                                var startTime = validator.getFieldElements('eventEndDate').val();
+                                return moment(value).isBefore(startTime);
+                            }
                         }
                     }
                 },
                 eventEndDate: {
+                    trigger: 'blur',
                     validators: {
                         notEmpty: {
                             message: 'The event end date and time is required. '
+                        },
+                        callback: {
+                            message: 'The event end date must be later than the event start date',
+                            callback: function(value, validator) {
+                                var startTime = validator.getFieldElements('eventStartDate').val();
+                                if (moment(value).isAfter(startTime)) {
+                                    validator.updateStatus('eventEndDate', validator.STATUS_VALID, 'callback');
+                                    validator.updateStatus('eventStartDate', validator.STATUS_VALID, 'callback');
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }
                         }
                     }
                 },

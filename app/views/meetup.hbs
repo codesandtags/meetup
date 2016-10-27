@@ -59,15 +59,17 @@
         $('input[name=eventStartDate]').attr('min', today);
         $('input[name=eventEndDate]').attr('min', today);
 
-        loadCountries('#countries');
-
         $('#datetimeEventStart').datetimepicker({
-            format: 'YYYY/MM/DD HH:mm'
+            minDate: new Date(),
+            format: 'YYYY/MM/DD h:m A'
         });
 
         $('#datetimeEventEnd').datetimepicker({
-            format: 'YYYY/MM/DD HH:mm'
+            minDate: new Date(),
+            format: 'YYYY/MM/DD h:m A'
         });
+
+        loadCountries('#countries');
     });
 
 </script>
